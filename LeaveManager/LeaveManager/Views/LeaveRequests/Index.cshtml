@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LeaveManager.Models.LeaveRequest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.requestStatus.requestStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allDayEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryManagerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryManagerApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManagerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManagerApproved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.requestStatus.requestStatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.allDayEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliveryManagerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliveryManagerApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departmentManagerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.departmentManagerApproved)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.leaveRequestID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model LeaveManager.Models.DeliveryManagerLeaveRequestViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DeliveryManagerLeaveRequestViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryManagerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deliveryManagerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryManagerApproved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deliveryManagerApproved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryManagerComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deliveryManagerComment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.lID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

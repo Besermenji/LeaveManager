@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveManager", "LeaveManager\LeaveManager.csproj", "{1772ED1C-9613-4543-88B7-AC53E92F336F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveManager.Tests", "LeaveManager.Tests\LeaveManager.Tests.csproj", "{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1772ED1C-9613-4543-88B7-AC53E92F336F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1772ED1C-9613-4543-88B7-AC53E92F336F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1772ED1C-9613-4543-88B7-AC53E92F336F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1772ED1C-9613-4543-88B7-AC53E92F336F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://bervacanin.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LeaveManager.Tests\\LeaveManager.Tests.csproj
+		SccProjectName1 = LeaveManager.Tests
+		SccLocalPath1 = LeaveManager.Tests
+		SccProjectUniqueName2 = LeaveManager\\LeaveManager.csproj
+		SccProjectName2 = LeaveManager
+		SccLocalPath2 = LeaveManager
+	EndGlobalSection
+EndGlobal
