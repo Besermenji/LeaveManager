@@ -61,30 +61,30 @@ namespace LeaveManager.Migrations
 
 
             //Remove All Tables
-            
-            var db = new LeaveManagerContext();
-            removeAllTables(db);
-            
+
+            //var db = new LeaveManagerContext();
+            //removeAllTables(db);
+
 
 
             //Add data to database
-           /* var db = new LeaveManagerContext();
-            populateDatabase(db);*/
+            var db = new LeaveManagerContext();
+            populateDatabase(db);
 
         }
 
         private void populateDatabase(LeaveManagerContext db)
         {
-            Employee e1 = new Employee {employeeFirstName = "Pera", employeeLastName = "Peric", employeeEmail = "pera.peric@gmail.com" };
+            Employee e1 = new Employee { employeeFirstName = "Pera", employeeLastName = "Peric", employeeEmail = "pera.peric@gmail.com" };
             Employee e2 = new Employee { employeeFirstName = "Mitar", employeeLastName = "Mitric", employeeEmail = "mitar.mitric@gmail.com" };
             Employee e3 = new Employee { employeeFirstName = "Zika", employeeLastName = "Zikic", employeeEmail = "zika.zikic@gmail.com" };
             Employee e4 = new Employee { employeeFirstName = "Marina", employeeLastName = "Maric", employeeEmail = "marina.maric@gmail.com" };
             Employee e5 = new Employee { employeeFirstName = "Maja", employeeLastName = "Majic", employeeEmail = "maja.majic@gmail.com" };
             Employee e6 = new Employee { employeeFirstName = "Nikola", employeeLastName = "Nikolic", employeeEmail = "nikola.nikolic@gmail.com" };
 
-            db.Employees.AddOrUpdate(e1,e2,e3,e4,e5,e6);
+            db.Employees.AddOrUpdate(e1, e2, e3, e4, e5, e6);
 
-            Role r1 = new Role {roleName = "Worker" };
+            Role r1 = new Role { roleName = "Worker" };
             Role r2 = new Role { roleName = "Delivery Manager" };
             Role r3 = new Role { roleName = "Department Manager" };
 
@@ -98,7 +98,7 @@ namespace LeaveManager.Migrations
             EmployeeRole er6 = new EmployeeRole { employee = e5, employeeID = e1.employeeID, role = r1, roleID = r1.roleID };
             EmployeeRole er7 = new EmployeeRole { employee = e6, employeeID = e6.employeeID, role = r3, roleID = r3.roleID };
 
-            db.EmployeeRoles.AddOrUpdate(er1,er2,er3,er4,er5,er6,er7);
+            db.EmployeeRoles.AddOrUpdate(er1, er2, er3, er4, er5, er6, er7);
 
             LeaveReason lr1 = new LeaveReason() { leaveReasonName = "Holiday" };
             LeaveReason lr2 = new LeaveReason() { leaveReasonName = "Sickness" };
@@ -113,6 +113,21 @@ namespace LeaveManager.Migrations
 
             db.RequestStatus.AddOrUpdate(rs1, rs2, rs3, rs4);
 
+            LeaveRequest leaveRequest1 = new LeaveRequest {
+                allDayEvent = true,
+                deliveryManager = e3, deliveryManagerID = e3.employeeID,
+                deliveryManagerApproved = false,
+                deliveryManagerComment = "",
+                departmentManager = e6, departmentManagerID = e6.employeeID,
+                departmentManagerApproved = false,
+                departmentManagerComment = "",
+                Description = "My wifes birthday",
+                employee = e1,employeeID=e1.employeeID,
+                endTime =new DateTime(2012,12,12),
+                leaveReason =lr1,leaveReasonID = lr1.leaveReasonID,
+                requestStatus =rs1,requestStatusID = rs1.requestStatusID,
+                startTime =new DateTime(2012,12,22)};
+            db.LeaveRequests.AddOrUpdate(leaveRequest1);
             db.SaveChanges();
 
 

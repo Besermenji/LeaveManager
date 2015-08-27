@@ -13,17 +13,23 @@ namespace LeaveManager.Controllers
     public class DeliveryManagerLeaveRequestViewModelsController : Controller
     {
         private LeaveManagerContext db = new LeaveManagerContext();
+        
 
         // GET: DeliveryManagerLeaveRequestViewModels
         public ActionResult Index()
-        {
+        { 
             //enabling property acces for employee name
-            var deliveryManagerLeaveRequestViewModels = db.LeaveRequests;
+            int idTmp = GetRequestStatusID("Waiting For Delivery Manager Approve");
+            var deliveryManagerLeaveRequestViewModels = from u in db.LeaveRequests
+                                                        where u.requestStatusID ==  idTmp select u;
+           
 
             foreach (LeaveRequest req in deliveryManagerLeaveRequestViewModels)
             {
-                req.employee = db.Employees.Find(req.employeeID);
-                req.deliveryManager = db.Employees.Find(req.deliveryManagerID);
+                
+                    req.employee = db.Employees.Find(req.employeeID);
+                    req.deliveryManager = db.Employees.Find(req.deliveryManagerID);
+                
             }
             return View(deliveryManagerLeaveRequestViewModels.ToList());
         }
@@ -51,6 +57,9 @@ namespace LeaveManager.Controllers
             //TODO1: add some stuff to get comment out, to update LeaveReques db with comment and delete this entery from index because it is processed
             //db.LeaveRequests.Remove(deliveryManagerLeaveRequestViewModel);
             db.LeaveRequests.Find(id).requestStatusID = GetRequestStatusID("Waiting For Department Manager Approve");
+            db.LeaveRequests.Find(id).requestStatus.requestStatusName = "Waiting For Department Manager Approve";
+            db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
@@ -69,9 +78,10 @@ namespace LeaveManager.Controllers
             }
 
             //TODO2: add some stuff to get comment out, to update LeaveReques db with comment and delete this entery from index because it is processed
-            int reqID = GetRequestStatusID("pending");
+            int reqID = GetRequestStatusID("Declined");
             db.LeaveRequests.Find(id).requestStatusID = reqID;
-
+            db.LeaveRequests.Find(id).requestStatus.requestStatusName = "Declined";
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

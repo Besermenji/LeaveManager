@@ -5,10 +5,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+<h2>Delivery Manager - Waiting for approval</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 </p>
 <table class="table">
     <tr>
@@ -40,43 +41,52 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.requestStatus.requestStatusName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employee.employeeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.allDayEvent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.startTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.EditorFor(modelItem => item.deliveryManagerComment, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(modelItem => item.deliveryManagerComment, "", new { @class = "text-danger" })
+    @foreach (var item in Model)
+    {
+        
+        <tr id="@item.leaveRequestID">
+
+            <td>
+                @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requestStatus.requestStatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.employeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allDayEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.startTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item.deliveryManagerComment, new { htmlAttributes = new { @class = "form-control", @id = "deliveryManagerComment" } })
+                @Html.ValidationMessageFor(modelItem => item.deliveryManagerComment, "", new { @class = "text-danger" })
 
 
-        </td>
-        <td>
-            @Html.ActionLink("Approve", "Approve", new { id=item.leaveRequestID }) |
-            @Html.ActionLink("Deny", "Deny", new { id = item.leaveRequestID })
+            </td>
+            <td>
+                @Html.ActionLink("Approve", "Approve", new { id = item.leaveRequestID }, new { @class = "clickableLink",@id= @item.leaveRequestID+" deliveryManagerApprove" }) |
+                @Html.ActionLink("Deny", "Deny", new { id = item.leaveRequestID }, new { @class = "clickableLink",@id= @item.leaveRequestID + " deliveryManagerDeny"})
+
+                @*@Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |*@
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
+            </td>
+        </tr>
             
-            @*@Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |*@
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
-        </td>
-    </tr>
-}
+    }
 
 </table>
+@section JavaScript{
+    
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+<script src="@Url.Content("~/Scripts/DeliveryManagerIndexScripts.js")"></script>
+    }

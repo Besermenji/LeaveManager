@@ -10,6 +10,7 @@ namespace LeaveManager.Models
     {
         [Display(Name = "Employee")]
         public int employeeID { get; set; }
+        [Display(Name = "Employee Name")]
         public string employeeName
         {
             get
