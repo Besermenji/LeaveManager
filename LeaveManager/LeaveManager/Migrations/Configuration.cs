@@ -37,8 +37,8 @@ namespace LeaveManager.Migrations
 
 
             //Add data to database
-            var db = new LeaveManagerContext();
-            populateDatabase(db);
+            //var db = new LeaveManagerContext();
+            //populateDatabase(db);
 
         }
 

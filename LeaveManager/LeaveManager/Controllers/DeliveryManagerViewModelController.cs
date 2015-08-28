@@ -30,7 +30,8 @@ namespace LeaveManager.Controllers
                     LeaveRequestId = request.leaveRequestID,
                     DeliveryManagerID = request.deliveryManager.employeeID,
                     EmployeeID = request.employee.employeeID,
-                    LeaveReasonID = request.leaveReason.leaveReasonID
+                    LeaveReasonID = request.leaveReason.leaveReasonID,
+                    deliveryManagerStatusID = request.deliveryManagerStatus.requestStatusID
 
                 });
 
@@ -69,6 +70,7 @@ namespace LeaveManager.Controllers
         // GET: DeliveryManagerViewModel/Edit/5
         public ActionResult Edit(int id)
         {
+            
             return View();
         }
 
@@ -87,33 +89,42 @@ namespace LeaveManager.Controllers
                 return View();
             }
         }
-        
+
         public ActionResult ProcessRequest(int id) {
-           
-                return View();
-           
-        }
 
-        // GET: DeliveryManagerViewModel/Delete/5
-        public ActionResult Delete(int id)
-        {
+
+            var request = db.LeaveRequests.Find(id);
+            ViewData["EmployeeName"] = request.employee.employeeName;
+
             return View();
-        }
 
-        // POST: DeliveryManagerViewModel/Delete/5
+        }
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult ProcessRequest(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                // TODO: Add update logic here
+                LeaveRequest tmp = db.LeaveRequests.Find(id);
+                string description = Convert.ToString(collection["deliveryManagerComment"]);
+                string status = Convert.ToString(collection["status"]);
+                tmp.deliveryManagerComment = description;
 
+                tmp.deliveryManagerStatus = db.RequestStatus.Single(s => s.requestStatusName.Equals(status));
+                db.LeaveRequests.Remove(db.LeaveRequests.Find(id));
+                db.LeaveRequests.Add(tmp);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
+        }
+
+        public ActionResult RequestInfo()
+        {
+            return View();
         }
     }
 }

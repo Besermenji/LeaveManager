@@ -15,7 +15,7 @@ namespace LeaveManager.Models
         public int EmployeeID { get; set; }
         public virtual Employee employee { get; set; }
 
-
+            //test
         [Display(Name = "All Day Event?")]
         public bool allDayEvent { get; set; }
 

@@ -5,17 +5,18 @@
 }
 
 <h2>ProcessRequest</h2>
-
-
+<br />
+<b>@Html.DisplayNameFor(model => model.employee.employeeName): </b>@ViewData["employeeName"]
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>DeliveryManagerLeaveRequestViewModel</h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.LeaveRequestId)
+
 
 
         <div class="form-group">
@@ -27,12 +28,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.deliveryManagerStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("deliveryManagerStatus",)
-                @Html.ValidationMessageFor(model => model.LeaveRequestId, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.deliveryManagerStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            <div>
+                <label class="checkbox-inline"><input type="radio" name="status" value="Approved">Approve</label>
+                <label class="checkbox-inline"><input type="radio" name="status" value="Denied">Deny</label>
             </div>
         </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
