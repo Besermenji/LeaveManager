@@ -8,15 +8,15 @@ namespace LeaveManager.Controllers
 {
     public class DeliveryManagerAjaxController : Controller
     {
-        // GET: Ajax
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Approved() {
+        
+
+        [HttpPost]
+        public ActionResult Approved(string jsonRequest) {
+            var x = jsonRequest;
 
             return Json(new { });
         }
+        [HttpPost]
         public ActionResult Denied() {
             return Json(new { });
         }

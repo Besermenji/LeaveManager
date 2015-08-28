@@ -115,17 +115,16 @@ namespace LeaveManager.Migrations
 
             LeaveRequest leaveRequest1 = new LeaveRequest {
                 allDayEvent = true,
-                deliveryManager = e3, deliveryManagerID = e3.employeeID,
-                deliveryManagerApproved = false,
+                //deliveryManagerApproved = false,
                 deliveryManagerComment = "",
-                departmentManager = e6, departmentManagerID = e6.employeeID,
-                departmentManagerApproved = false,
+               // departmentManager = e6, departmentManagerID = e6.employeeID,
+                //departmentManagerApproved = false,
                 departmentManagerComment = "",
                 Description = "My wifes birthday",
-                employee = e1,employeeID=e1.employeeID,
+               // employee = e1,employeeID=e1.employeeID,
                 endTime =new DateTime(2012,12,12),
-                leaveReason =lr1,leaveReasonID = lr1.leaveReasonID,
-                requestStatus =rs1,requestStatusID = rs1.requestStatusID,
+               // leaveReason =lr1,leaveReasonID = lr1.leaveReasonID,
+               // requestStatus =rs1,requestStatusID = rs1.requestStatusID,
                 startTime =new DateTime(2012,12,22)};
             db.LeaveRequests.AddOrUpdate(leaveRequest1);
             db.SaveChanges();

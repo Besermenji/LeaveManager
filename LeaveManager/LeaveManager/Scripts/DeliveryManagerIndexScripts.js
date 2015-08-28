@@ -1,21 +1,37 @@
 ﻿$(document).ready(function () {
 
-    
-    //$(".clickableLink").click(function () {
-    //    var tmp = $("#deliveryManagerComment").val();
-    //    var id = $(this.id).val().split;
-    //    var comm = tmp[1];
-    //    alert(id);
-    //    alert(comm);
-       
-    //    return false;
-    //});
+
     $('.clickableLink').on('click', function () {
-        var tmp = this.id.val().split(" ");
+        var tmp = this.id.split(" ");
         var id = tmp[0];
         var comm = $("#deliveryManagerComment").val();
+        //json that we are sending to ajax
+        var dataRequest = new Object();
+        dataRequest.id = id;
+        dataRequest.comm = comm;
        
-        //TODO ajax request koji apdejtuje tabelu i u povratku brise tr tabele
+        
+        if (tmp[1] == "deliveryManagerApprove") {
+            //ajax for approved action
+            $.ajax({
+                data: JSON.stringify(dataRequest),
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                url: "DeliveryManagerAjax/Approved",
+                success: function (data) {
+                    alert(data);
+                }
+            });
+
+            return false;
+        }
+        else {
+            //ajax for denied action
+            alert("other");
+            return false;
+        }
+        
+        
         return false;
     });
 

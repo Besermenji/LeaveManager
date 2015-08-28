@@ -17,7 +17,8 @@ namespace LeaveManager.Controllers
         // GET: LeaveRequests
         public ActionResult Index()
         {
-            var leaveRequests = db.LeaveRequests.Include(l => l.leaveReason).Include(l => l.requestStatus).Include(l => l.employee).Include(l => l.deliveryManager).Include(l => l.departmentManager);
+            // removed Include(l => l.requestStatus).
+            var leaveRequests = db.LeaveRequests.Include(l => l.leaveReason).Include(l => l.employee).Include(l => l.deliveryManager).Include(l => l.departmentManager);
             return View(leaveRequests.ToList());
         }
 
@@ -61,11 +62,11 @@ namespace LeaveManager.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
+           /* ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
             ViewBag.deliveryManagerID = new SelectList(db.Employees, "deliveryManagerID", "employeeName", leaveRequest.deliveryManagerID);
             ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeName", leaveRequest.employeeID);
             ViewBag.leaveReasonID = new SelectList(db.LeaveReasons, "leaveReasonID", "leaveReasonName", leaveRequest.leaveReasonID);
-            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);
+            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);*/
             return View(leaveRequest);
         }
 
@@ -81,11 +82,11 @@ namespace LeaveManager.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
+          /*  ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
             ViewBag.deliveryManagerID = new SelectList(db.Employees, "deliveryManagerID", "employeeName", leaveRequest.deliveryManagerID);
             ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeName", leaveRequest.employeeID);
             ViewBag.leaveReasonID = new SelectList(db.LeaveReasons, "leaveReasonID", "leaveReasonName", leaveRequest.leaveReasonID);
-            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);
+            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);*/
             return View(leaveRequest);
         }
 
@@ -102,11 +103,11 @@ namespace LeaveManager.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
+            /*ViewBag.departmentManagerID = new SelectList(db.Employees, "departmentManagerID", "employeeName", leaveRequest.departmentManagerID);
             ViewBag.deliveryManagerID = new SelectList(db.Employees, "deliveryManagerID", "employeeName", leaveRequest.deliveryManagerID);
             ViewBag.employeeID = new SelectList(db.Employees, "employeeID", "employeeName", leaveRequest.employeeID);
             ViewBag.leaveReasonID = new SelectList(db.LeaveReasons, "leaveReasonID", "leaveReasonName", leaveRequest.leaveReasonID);
-            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);
+            ViewBag.requestStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", leaveRequest.requestStatusID);*/
             return View(leaveRequest);
         }
 
