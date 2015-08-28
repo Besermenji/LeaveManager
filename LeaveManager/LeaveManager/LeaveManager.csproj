@@ -125,7 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DeliveryManagerAjaxController.cs" />
-    <Compile Include="Controllers\DeliveryManagerLeaveRequestViewModelsController.cs" />
+    <Compile Include="Controllers\DeliveryManagerViewModelController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveRequestsController.cs" />
@@ -133,9 +133,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508280926121_init.cs" />
+    <Compile Include="Migrations\201508280926121_init.Designer.cs">
+      <DependentUpon>201508280926121_init.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DeliveryManagerLeaveRequestViewModel.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeLeaveRequestViewModel.cs" />
     <Compile Include="Models\EmployeeRole.cs" />
     <Compile Include="Models\LeaveManagerContext.cs" />
     <Compile Include="Models\LeaveReason.cs" />
@@ -153,6 +158,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DeliveryManagerIndexScripts.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -198,12 +204,8 @@
     <Content Include="Views\LeaveRequests\Details.cshtml" />
     <Content Include="Views\LeaveRequests\Edit.cshtml" />
     <Content Include="Views\LeaveRequests\Index.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Create.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Delete.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Details.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Edit.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Index.cshtml" />
-    <Content Include="Views\DeliveryManagerLeaveRequestViewModels\Approve.cshtml" />
+    <Content Include="Views\DeliveryManagerViewModel\Index.cshtml" />
+    <Content Include="Views\DeliveryManagerViewModel\ProcessRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,6 +217,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508280926121_init.resx">
+      <DependentUpon>201508280926121_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

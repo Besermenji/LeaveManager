@@ -1,6 +1,6 @@
 namespace LeaveManager.Migrations
 {
-    using LeaveManager.Models;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -8,10 +8,10 @@ namespace LeaveManager.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<LeaveManager.Models.LeaveManagerContext>
     {
+        
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "LeaveManager.Models.LeaveManagerContext";
         }
 
         protected override void Seed(LeaveManager.Models.LeaveManagerContext context)
@@ -28,37 +28,6 @@ namespace LeaveManager.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            /*Employee e1 = new Employee { employeeID = 100, employeeFirstName = "Dzordz", employeeLastName = "Dzonson", employeeEmail = "dzordz.dzonson@gmail.com" };
-            Employee e2 = new Employee { employeeID = 101, employeeFirstName = "Beni", employeeLastName = "Benic", employeeEmail = "beni.benic@gmail.com"};
-
-            Role r1 = new Role { roleID = 100, roleName = "TestRole1" };
-            Role r2 = new Role { roleID = 101, roleName = "TestRole2" };
-
-            EmployeeRole er1 = new EmployeeRole {employeeRoleID = 100, employee = e1, employeeID = e1.employeeID, role = r1, roleID = r1.roleID};
-            EmployeeRole er2 = new EmployeeRole { employeeRoleID = 101, employee = e1, employeeID = e1.employeeID, role = r2, roleID = r2.roleID };
-
-            LeaveReason lr1 = new LeaveReason { leaveReasonID = 101, leaveReasonName = "sickness" };
-
-
-            var db = new LeaveManagerContext();
-
-            db.Employees.AddOrUpdate(e1, e2);
-            db.Roles.AddOrUpdate(r1, r2);
-            db.EmployeeRoles.AddOrUpdate(er1);
-            db.SaveChanges();*/
-
-
-
-
-
-            /*
-             LeaveReason lr1 = new LeaveReason { leaveReasonName = "died one more time" };
-             RequestStatus rs1 = new RequestStatus { requestStatusName = "pending" };
-             var db = new LeaveManagerContext();
-             db.LeaveReasons.Add(lr1);
-             db.RequestStatus.Add(rs1);
-             db.SaveChanges();*/
-
 
             //Remove All Tables
 
@@ -106,26 +75,28 @@ namespace LeaveManager.Migrations
 
             db.LeaveReasons.AddOrUpdate(lr1, lr2, lr3);
 
-            RequestStatus rs1 = new RequestStatus() { requestStatusName = "Waiting For Delivery Manager Approve" };
-            RequestStatus rs2 = new RequestStatus() { requestStatusName = "Waiting For Department Manager Approve" };
+            RequestStatus rs2 = new RequestStatus() { requestStatusName = "Pending" };
             RequestStatus rs3 = new RequestStatus() { requestStatusName = "Approved" };
             RequestStatus rs4 = new RequestStatus() { requestStatusName = "Declined" };
 
-            db.RequestStatus.AddOrUpdate(rs1, rs2, rs3, rs4);
+            db.RequestStatus.AddOrUpdate( rs2, rs3, rs4);
 
-            LeaveRequest leaveRequest1 = new LeaveRequest {
+            LeaveRequest leaveRequest1 = new LeaveRequest
+            {
                 allDayEvent = true,
-                //deliveryManagerApproved = false,
+                deliveryManager = e3,
                 deliveryManagerComment = "",
-               // departmentManager = e6, departmentManagerID = e6.employeeID,
-                //departmentManagerApproved = false,
+                departmentManager = e6,
                 departmentManagerComment = "",
                 Description = "My wifes birthday",
-               // employee = e1,employeeID=e1.employeeID,
-                endTime =new DateTime(2012,12,12),
-               // leaveReason =lr1,leaveReasonID = lr1.leaveReasonID,
-               // requestStatus =rs1,requestStatusID = rs1.requestStatusID,
-                startTime =new DateTime(2012,12,22)};
+                employee = e1,
+                endTime = new DateTime(2012, 12, 12),
+                leaveReason =lr1,
+                deliveryManagerStatus =rs2,
+                startTime = new DateTime(2012, 12, 22),
+                departmentManagerStatus = rs2
+                
+            };
             db.LeaveRequests.AddOrUpdate(leaveRequest1);
             db.SaveChanges();
 
@@ -139,10 +110,10 @@ namespace LeaveManager.Migrations
                 db.Employees.Remove(e);
             }
 
-           /* foreach (var e in db.EmployeeLeaveRequestViewModels)
-            {
-                db.EmployeeLeaveRequestViewModels.Remove(e);
-            }*/
+            /* foreach (var e in db.EmployeeLeaveRequestViewModels)
+             {
+                 db.EmployeeLeaveRequestViewModels.Remove(e);
+             }*/
 
             foreach (var e in db.EmployeeRoles)
             {
@@ -171,5 +142,7 @@ namespace LeaveManager.Migrations
 
             db.SaveChanges();
         }
+        
+    
     }
 }

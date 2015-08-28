@@ -55,6 +55,8 @@ C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\bin\System.
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.Razor.xml
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\bin\Antlr3.Runtime.pdb
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\bin\Newtonsoft.Json.xml
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Migrations.init.resources
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csproj.GenerateResource.Cache
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.dll
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.pdb
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csprojResolveAssemblyReference.cache
