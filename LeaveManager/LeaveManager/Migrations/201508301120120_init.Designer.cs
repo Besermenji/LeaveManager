@@ -13,7 +13,7 @@ namespace LeaveManager.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201508280926121_init"; }
+            get { return "201508301120120_init"; }
         }
         
         string IMigrationMetadata.Source

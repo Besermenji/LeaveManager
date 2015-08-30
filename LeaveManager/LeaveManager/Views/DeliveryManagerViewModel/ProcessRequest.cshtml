@@ -7,6 +7,14 @@
 <h2>ProcessRequest</h2>
 <br />
 <b>@Html.DisplayNameFor(model => model.employee.employeeName): </b>@ViewData["employeeName"]
+<b>@Html.DisplayNameFor(model => model.allDayEvent): </b>@ViewData["allDay"]
+<b>@Html.DisplayNameFor(model => model.startTime): </b>@ViewData["startDate"]
+<b>@Html.DisplayNameFor(model => model.endTime): </b>@ViewData["endDate"]
+<b>@Html.DisplayNameFor(model => model.leaveReason): </b>@ViewData["leaveReason"]
+<b>@Html.DisplayNameFor(model => model.Description): </b>@ViewData["description"]
+<br />
+<br />
+<br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

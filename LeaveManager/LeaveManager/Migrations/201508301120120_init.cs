@@ -8,6 +8,64 @@ namespace LeaveManager.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.DeliveryManagerLeaveRequestViewModels",
+                c => new
+                    {
+                        DeliveryManagerLeaveRequestViewModelID = c.Int(nullable: false, identity: true),
+                        EmployeeID = c.Int(nullable: false),
+                        allDayEvent = c.Boolean(nullable: false),
+                        startTime = c.DateTime(nullable: false),
+                        endTime = c.DateTime(nullable: false),
+                        LeaveReasonID = c.Int(nullable: false),
+                        Description = c.String(),
+                        DeliveryManagerID = c.Int(nullable: false),
+                        deliveryManagerStatusID = c.Int(nullable: false),
+                        deliveryManagerComment = c.String(),
+                        LeaveRequestId = c.Int(nullable: false),
+                        deliveryManager_employeeID = c.Int(),
+                        deliveryManagerStatus_requestStatusID = c.Int(),
+                        employee_employeeID = c.Int(),
+                    })
+                .PrimaryKey(t => t.DeliveryManagerLeaveRequestViewModelID)
+                .ForeignKey("dbo.Employees", t => t.deliveryManager_employeeID)
+                .ForeignKey("dbo.RequestStatus", t => t.deliveryManagerStatus_requestStatusID)
+                .ForeignKey("dbo.Employees", t => t.employee_employeeID)
+                .ForeignKey("dbo.LeaveReasons", t => t.LeaveReasonID, cascadeDelete: true)
+                .Index(t => t.LeaveReasonID)
+                .Index(t => t.deliveryManager_employeeID)
+                .Index(t => t.deliveryManagerStatus_requestStatusID)
+                .Index(t => t.employee_employeeID);
+            
+            CreateTable(
+                "dbo.Employees",
+                c => new
+                    {
+                        employeeID = c.Int(nullable: false, identity: true),
+                        employeeFirstName = c.String(),
+                        employeeLastName = c.String(),
+                        employeeEmail = c.String(),
+                    })
+                .PrimaryKey(t => t.employeeID);
+            
+            CreateTable(
+                "dbo.RequestStatus",
+                c => new
+                    {
+                        requestStatusID = c.Int(nullable: false, identity: true),
+                        requestStatusName = c.String(),
+                    })
+                .PrimaryKey(t => t.requestStatusID);
+            
+            CreateTable(
+                "dbo.LeaveReasons",
+                c => new
+                    {
+                        leaveReasonID = c.Int(nullable: false, identity: true),
+                        leaveReasonName = c.String(),
+                    })
+                .PrimaryKey(t => t.leaveReasonID);
+            
+            CreateTable(
                 "dbo.EmployeeRoles",
                 c => new
                     {
@@ -22,17 +80,6 @@ namespace LeaveManager.Migrations
                 .Index(t => t.employeeID);
             
             CreateTable(
-                "dbo.Employees",
-                c => new
-                    {
-                        employeeID = c.Int(nullable: false, identity: true),
-                        employeeFirstName = c.String(),
-                        employeeLastName = c.String(),
-                        employeeEmail = c.String(),
-                    })
-                .PrimaryKey(t => t.employeeID);
-            
-            CreateTable(
                 "dbo.Roles",
                 c => new
                     {
@@ -40,15 +87,6 @@ namespace LeaveManager.Migrations
                         roleName = c.String(),
                     })
                 .PrimaryKey(t => t.roleID);
-            
-            CreateTable(
-                "dbo.LeaveReasons",
-                c => new
-                    {
-                        leaveReasonID = c.Int(nullable: false, identity: true),
-                        leaveReasonName = c.String(),
-                    })
-                .PrimaryKey(t => t.leaveReasonID);
             
             CreateTable(
                 "dbo.LeaveRequests",
@@ -82,15 +120,6 @@ namespace LeaveManager.Migrations
                 .Index(t => t.employee_employeeID)
                 .Index(t => t.leaveReason_leaveReasonID);
             
-            CreateTable(
-                "dbo.RequestStatus",
-                c => new
-                    {
-                        requestStatusID = c.Int(nullable: false, identity: true),
-                        requestStatusName = c.String(),
-                    })
-                .PrimaryKey(t => t.requestStatusID);
-            
         }
         
         public override void Down()
@@ -103,6 +132,10 @@ namespace LeaveManager.Migrations
             DropForeignKey("dbo.LeaveRequests", "deliveryManager_employeeID", "dbo.Employees");
             DropForeignKey("dbo.EmployeeRoles", "roleID", "dbo.Roles");
             DropForeignKey("dbo.EmployeeRoles", "employeeID", "dbo.Employees");
+            DropForeignKey("dbo.DeliveryManagerLeaveRequestViewModels", "LeaveReasonID", "dbo.LeaveReasons");
+            DropForeignKey("dbo.DeliveryManagerLeaveRequestViewModels", "employee_employeeID", "dbo.Employees");
+            DropForeignKey("dbo.DeliveryManagerLeaveRequestViewModels", "deliveryManagerStatus_requestStatusID", "dbo.RequestStatus");
+            DropForeignKey("dbo.DeliveryManagerLeaveRequestViewModels", "deliveryManager_employeeID", "dbo.Employees");
             DropIndex("dbo.LeaveRequests", new[] { "leaveReason_leaveReasonID" });
             DropIndex("dbo.LeaveRequests", new[] { "employee_employeeID" });
             DropIndex("dbo.LeaveRequests", new[] { "departmentManagerStatus_requestStatusID" });
@@ -111,12 +144,17 @@ namespace LeaveManager.Migrations
             DropIndex("dbo.LeaveRequests", new[] { "deliveryManager_employeeID" });
             DropIndex("dbo.EmployeeRoles", new[] { "employeeID" });
             DropIndex("dbo.EmployeeRoles", new[] { "roleID" });
-            DropTable("dbo.RequestStatus");
+            DropIndex("dbo.DeliveryManagerLeaveRequestViewModels", new[] { "employee_employeeID" });
+            DropIndex("dbo.DeliveryManagerLeaveRequestViewModels", new[] { "deliveryManagerStatus_requestStatusID" });
+            DropIndex("dbo.DeliveryManagerLeaveRequestViewModels", new[] { "deliveryManager_employeeID" });
+            DropIndex("dbo.DeliveryManagerLeaveRequestViewModels", new[] { "LeaveReasonID" });
             DropTable("dbo.LeaveRequests");
-            DropTable("dbo.LeaveReasons");
             DropTable("dbo.Roles");
-            DropTable("dbo.Employees");
             DropTable("dbo.EmployeeRoles");
+            DropTable("dbo.LeaveReasons");
+            DropTable("dbo.RequestStatus");
+            DropTable("dbo.Employees");
+            DropTable("dbo.DeliveryManagerLeaveRequestViewModels");
         }
     }
 }

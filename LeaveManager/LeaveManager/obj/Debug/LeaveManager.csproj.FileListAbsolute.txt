@@ -60,3 +60,36 @@ C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\L
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csproj.GenerateResource.Cache
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.dll
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.pdb
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\LeaveManager.dll.config
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\LeaveManager.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\LeaveManager.pdb
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\Antlr3.Runtime.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\EntityFramework.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\EntityFramework.SqlServer.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\Newtonsoft.Json.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Helpers.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Mvc.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Optimization.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Razor.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.Razor.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\WebGrease.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\EntityFramework.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\EntityFramework.SqlServer.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Helpers.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Mvc.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Optimization.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.Razor.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\System.Web.WebPages.Razor.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\Antlr3.Runtime.pdb
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\bin\Newtonsoft.Json.xml
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csprojResolveAssemblyReference.cache
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.dll
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.pdb
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Migrations.init.resources
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csproj.GenerateResource.Cache
+C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Properties.Resources.resources
