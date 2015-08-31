@@ -126,6 +126,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DeliveryManagerAjaxController.cs" />
     <Compile Include="Controllers\DeliveryManagerViewModelController.cs" />
+    <Compile Include="Controllers\DepartmentManagerLeaveRequestViewModelsController.cs" />
+    <Compile Include="Controllers\EmployeeLeaveRequestViewModelsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveRequestsController.cs" />
@@ -139,6 +141,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DeliveryManagerLeaveRequestViewModel.cs" />
+    <Compile Include="Models\DepartmentManagerLeaveRequestViewModel.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeLeaveRequestViewModel.cs" />
     <Compile Include="Models\EmployeeRole.cs" />
@@ -157,6 +160,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -170,6 +174,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.datetimepicker.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -212,6 +218,13 @@
     <Content Include="Views\LeaveRequests\Index.cshtml" />
     <Content Include="Views\DeliveryManagerViewModel\Index.cshtml" />
     <Content Include="Views\DeliveryManagerViewModel\ProcessRequest.cshtml" />
+    <Content Include="Views\EmployeeLeaveRequestViewModels\Create.cshtml" />
+    <Content Include="Views\EmployeeLeaveRequestViewModels\Delete.cshtml" />
+    <Content Include="Views\EmployeeLeaveRequestViewModels\Details.cshtml" />
+    <Content Include="Views\EmployeeLeaveRequestViewModels\Edit.cshtml" />
+    <Content Include="Views\EmployeeLeaveRequestViewModels\Index.cshtml" />
+    <Content Include="Views\DepartmentManagerLeaveRequestViewModels\DepartmentManagerProcessRequest.cshtml" />
+    <Content Include="Views\DepartmentManagerLeaveRequestViewModels\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -232,6 +245,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

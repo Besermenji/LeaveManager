@@ -93,3 +93,4 @@ C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\Le
 C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Migrations.init.resources
 C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.csproj.GenerateResource.Cache
 C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Properties.Resources.resources
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager\obj\Debug\LeaveManager.Properties.Resources.resources

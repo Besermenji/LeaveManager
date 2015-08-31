@@ -6,6 +6,12 @@
     <title>@ViewBag.Title - Levi9 Leave Manager</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <script src="@Url.Content("~/Scripts/jquery.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.datetimepicker.js")"></script>
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery.datetimepicker.css")">
+
     <meta name="description" content="The description of my page" />
 </head>
 <body>
@@ -23,9 +29,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("New Request", "Index", "Home")</li>
+                    <li>@Html.ActionLink("List Of All Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
                     <li>@Html.ActionLink("Review by Delivery Manager", "Index", "DeliveryManagerViewModel")</li>
-                    <li>@Html.ActionLink("Review by Department Manager", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Review by Department Manager", "Index", "DepartmentManagerLeaveRequestViewModels")</li>
                 </ul>
             </div>
         </div>

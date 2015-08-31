@@ -16,7 +16,7 @@ namespace LeaveManager.Controllers
             List<DeliveryManagerLeaveRequestViewModel> deliveryManagerViewModels = new List<DeliveryManagerLeaveRequestViewModel>();
 
             foreach (LeaveRequest request in db.LeaveRequests) {
-                if (request.deliveryManagerStatus.requestStatusName.Equals("pending"))
+                if (request.deliveryManagerStatus.requestStatusName.Equals("Pending"))
                 {
                     deliveryManagerViewModels.Add(new DeliveryManagerLeaveRequestViewModel
                     {

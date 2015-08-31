@@ -1,0 +1,153 @@
+﻿@model IEnumerable<LeaveManager.Models.EmployeeLeaveRequestViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h2>List of leave requests</h2><br />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.employee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allDayEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryManager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryManagerStatus.requestStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryManagerComment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManagerStatus.requestStatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManagerComment)
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.employeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allDayEvent)
+            </td>
+            <td>
+                @if (item.allDayEvent)
+                {
+                    @Html.DisplayFor(modelItem => item.startTime).ToString().Split(' ')[0]
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.startTime)
+                }
+            </td>
+            <td>
+                @if (item.allDayEvent)
+                {
+                    @Html.DisplayFor(modelItem => item.endTime).ToString().Split(' ')[0]
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.endTime)
+                }
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.deliveryManager.employeeName)
+            </td>
+            <th>
+                @*@Html.DisplayFor(modelItem => item.deliveryManagerStatus.requestStatusName)*@
+                @formatStatus(item.deliveryManagerStatus.requestStatusName)
+            </th>
+            <th>
+                @if (!item.deliveryManagerStatus.requestStatusName.Equals("Pending"))
+                {
+
+
+                    @Html.DisplayFor(modelItem => item.deliveryManagerComment)
+
+
+                }
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.departmentManager.employeeName)
+            </td>
+            <th>
+                @*@Html.DisplayFor(modelItem => item.departmentManagerStatus.requestStatusName)*@
+                @formatStatus(item.departmentManagerStatus.requestStatusName)
+
+            </th>
+            <th>
+                @if (!item.departmentManagerStatus.requestStatusName.Equals("Pending"))
+                {
+
+
+                    @Html.DisplayFor(modelItem => item.departmentManagerComment)
+
+
+                }
+            </th>
+
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.leaveRequestID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@helper formatStatus(string status)
+{
+
+var color = "orange";
+if (status.Equals("Approved"))
+{
+    color = "green";
+}
+else if (status.Equals("Denied"))
+{
+    color = "red";
+}
+
+    <span style="color:@color"> @String.Format(status)</span>
+
+}

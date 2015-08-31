@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LeaveManager.Models.DepartmentManagerLeaveRequestViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Leave Requests For <i style="color:tomato">Department Manager</i> </h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.employee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.allDayEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentManager)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.employee.employeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.allDayEvent)
+            </td>
+            <td>
+                @if (item.allDayEvent)
+                {
+                    @Html.DisplayFor(modelItem => item.startTime).ToString().Split(' ')[0]
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.startTime)
+                }
+            </td>
+            <td>
+                @if (item.allDayEvent)
+                {
+                    @Html.DisplayFor(modelItem => item.endTime).ToString().Split(' ')[0]
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.endTime)
+                }
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.departmentManager.employeeName)
+            </td>
+
+            <td>
+                @Html.ActionLink("Process Request", "ProcessRequest", new { id = item.leaveRequestID })
+
+            </td>
+
+        </tr>
+    }
+
+</table>
