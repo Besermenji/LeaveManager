@@ -18,9 +18,19 @@ namespace LeaveManager.Models
                 return string.Format("{0} {1}", employeeFirstName, employeeLastName);
             }
         }
+        [Display(Name = "First Name")]
+        [Required]
         public string employeeFirstName { get; set; }
+        [Display(Name = "Last Name")]
+        [Required]
         public string employeeLastName { get; set; }
-        
+        [Display(Name = "Employee E-mail")]
+        [DataType(DataType.EmailAddress)]
+        [Required]
         public string employeeEmail { get; set; }
+        [Display(Name = "Password")]
+       
+        public string passwordHash { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

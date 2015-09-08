@@ -1,0 +1,5 @@
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\Helpers\bin\Debug\Helpers.dll
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\Helpers\bin\Debug\Helpers.pdb
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\Helpers\obj\Debug\Helpers.csprojResolveAssemblyReference.cache
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\Helpers\obj\Debug\Helpers.dll
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\Helpers\obj\Debug\Helpers.pdb

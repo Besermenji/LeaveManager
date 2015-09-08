@@ -29,6 +29,7 @@ namespace LeaveManager.Models
 
         [Display(Name = "Leave Reason")]
         public int LeaveReasonID { get; set; }
+        [Display(Name = "Leave Reason")]
         public virtual LeaveReason leaveReason { get; set; }
 
         [Display(Name = "Leave Reason Description")]
@@ -46,7 +47,7 @@ namespace LeaveManager.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Delivery Manager Comment")]
         public string deliveryManagerComment { get; set; }
-
+      
         public int LeaveRequestId { get; set; }
 
     }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@{  LeaveManager.Models.Employee user = (LeaveManager.Models.Employee)HttpContext.Current.Session["user"]; }
+@{  List<string> roles = (List<string>)HttpContext.Current.Session["roles"]; }
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,11 +10,17 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <script src="@Url.Content("~/Scripts/jquery.js")"></script>
+  
+   
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.auto-complete.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.datetimepicker.js")"></script>
-
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery.datetimepicker.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/jquery.auto-complete.css")">
 
     <meta name="description" content="The description of my page" />
+    
 </head>
 <body>
     <div style="margin-top:-50px" class="navbar navbar-default navbar-static-top">
@@ -29,9 +37,53 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("List Of All Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
-                    <li>@Html.ActionLink("Review by Delivery Manager", "Index", "DeliveryManagerViewModel")</li>
-                    <li>@Html.ActionLink("Review by Department Manager", "Index", "DepartmentManagerLeaveRequestViewModels")</li>
+                  
+                   
+                    @if (@user != null)
+                    {
+                        if (@roles.Contains("Worker"))
+                        {
+                            <li>@Html.ActionLink("List Of All Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
+                        }
+
+                        if (@roles.Contains("Delivery Manager"))
+                        {
+                            <li>@Html.ActionLink("Review by Delivery Manager", "Index", "DeliveryManagerViewModel")</li>
+                        }
+
+                        if (@roles.Contains("Department Manager"))
+                        {
+                            <li>@Html.ActionLink("Review by Department Manager", "Index", "DepartmentManagerLeaveRequestViewModels")</li>
+                        }
+
+                        if (@roles.Contains("Super User"))
+                        {
+                            <li>@Html.ActionLink("List Of All Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
+                            <li>@Html.ActionLink("Employees", "Index", "Employees")</li>
+                        }
+
+
+                        <li>@Html.ActionLink(@user.employeeName, "", "")</li>
+                        <li>@Html.ActionLink("Log out", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
+                     
+                    @if (@roles != null)
+                    {
+                        if (@roles.Contains("Super User"))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Mail Settings", "Index", "MailSettings")</li>
+                                </ul>
+                            </li>
+                        }
+                    }
+
                 </ul>
             </div>
         </div>
@@ -40,7 +92,7 @@
         @RenderBody()
         <hr />
         <footer style="position:absolute; bottom:0;">
-            <p>&copy; @DateTime.Now.Year - Levi9 Leave Manager</p>
+            @*<p>&copy; @DateTime.Now.Year - Levi9 Leave Manager</p>*@
         </footer>
     </div>
 
@@ -48,5 +100,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @RenderSection("JavaScript",required:false)
+
+    
 </body>
 </html>

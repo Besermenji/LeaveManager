@@ -17,6 +17,26 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.leaveRequestID)
 
+
+        @Html.LabelFor(model => model.employee.employeeName) : @ViewData["employeeName"]<br/><br/>
+       
+        @if ((bool)@ViewData["allDayEvent"])
+        {
+
+            @Html.LabelFor(model => model.startTime) <text>:</text> @ViewData["startTime"].ToString().Split(' ')[0] <br /><br />
+            @Html.LabelFor(model => model.endTime) <text>:</text>  @ViewData["endTime"].ToString().Split(' ')[0] <br /><br />
+        }
+        else
+        {
+           @Html.LabelFor(model => model.startTime) <text>:</text> @ViewData["startTime"]<br /><br />
+           @Html.LabelFor(model => model.endTime) <text>:</text> @ViewData["endTime"]<br /><br />
+        }
+
+      
+       
+        
+            
+       
         <div class="form-group">
             @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

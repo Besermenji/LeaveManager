@@ -9,7 +9,7 @@ namespace LeaveManager.Models
     public class LeaveRequest
     {
         public int leaveRequestID { get; set; }
-
+        
         [Display(Name = "Employee Name")]
         public virtual Employee employee { get; set; }
 
@@ -24,6 +24,7 @@ namespace LeaveManager.Models
         [DataType(DataType.Date)]
         public DateTime endTime { get; set; }
 
+       
         [Display(Name = "Leave Reason")]
         public virtual LeaveReason leaveReason { get; set; }
 
@@ -49,10 +50,13 @@ namespace LeaveManager.Models
         public virtual RequestStatus departmentManagerStatus { get; set; }
 
 
-        [Display(Name = "Delivery Manager Comment")]
+        [Display(Name = "Department Manager Comment")]
         public string departmentManagerComment { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
        
+
 
     }
 }

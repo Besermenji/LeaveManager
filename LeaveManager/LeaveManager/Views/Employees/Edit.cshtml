@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Employee</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Employee</h4>
+        <h4></h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.employeeID)
@@ -40,6 +40,25 @@
                 @Html.ValidationMessageFor(model => model.employeeEmail, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @foreach (string role in ViewBag.Roles)
+                {
+                    string[] tmp = role.Split(' ');
+                    string roleID = "";
+                    foreach (string x in tmp)
+                    {
+                        roleID += x;
+                    }
+                    @*<label class="checkbox-inline">
+                        <input type="checkbox" id=@roleID value=@roleID> @role
+                    </label>*@
+                    <label>@Html.CheckBox(roleID, ViewData[roleID]) @role</label>
+                }
+            </div>
+        </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
