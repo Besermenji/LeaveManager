@@ -125,10 +125,12 @@
             </th>
 
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id=item.leaveRequestID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
-            </td>
+           @if(item.departmentManagerStatus.requestStatusName.Equals("Approved") && item.deliveryManagerStatus.requestStatusName.Equals("Approved")){
+                @Html.ActionLink("printPDF", "printPDF", new { id = item.leaveRequestID })
+            }
+            @*  @Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
+        </td>
         </tr>
     }
 

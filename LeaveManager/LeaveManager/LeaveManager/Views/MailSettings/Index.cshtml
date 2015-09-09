@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LeaveManager.Models.MailSettings>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mail Settings</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Host)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Port)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Host)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Port)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Password)*@
+            &#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;
+        </td>
+        <td>
+            @Html.ActionLink("Change Settings", "Edit", new { id=item.MailSettingsID }) 
+        </td>
+    </tr>
+}
+
+</table>

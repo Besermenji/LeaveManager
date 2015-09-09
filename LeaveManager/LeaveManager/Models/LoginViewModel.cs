@@ -19,6 +19,8 @@ namespace LeaveManager.Models
             [Display(Name = "Password")]
             public string password { get; set; }
 
+
+
           
         
 

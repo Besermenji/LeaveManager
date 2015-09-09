@@ -70,8 +70,8 @@ namespace LeaveManager.Migrations
 
 
             ////Add data to database
-            //var db = new LeaveManagerContext();
-            //populateDatabase(db);
+            var db = new LeaveManagerContext();
+            populateDatabase(db);
 
             // ////Initial Mail Settings
             //////var db = new LeaveManagerContext();
@@ -93,33 +93,33 @@ namespace LeaveManager.Migrations
 
             db.Employees.AddOrUpdate(e1, e2, e3, e4, e5, e6, e7);
 
-            Role r1 = new Role { roleName = "Worker" };
-            Role r2 = new Role { roleName = "Delivery Manager" };
-            Role r3 = new Role { roleName = "Department Manager" };
-            Role r4 = new Role { roleName = "Super User" };
+            Role r1 = new Role { roleName = "Worker", CreateDate=DateTime.Now  };
+            Role r2 = new Role { roleName = "Delivery Manager", CreateDate = DateTime.Now };
+            Role r3 = new Role { roleName = "Department Manager", CreateDate = DateTime.Now };
+            Role r4 = new Role { roleName = "Super User", CreateDate = DateTime.Now };
 
             db.Roles.AddOrUpdate(r1, r2, r3, r4);
 
-            EmployeeRole er1 = new EmployeeRole { employee = e1, employeeID = e1.employeeID, role = r1, roleID = r1.roleID };
-            EmployeeRole er2 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r1, roleID = r1.roleID };
-            EmployeeRole er3 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r2, roleID = r2.roleID };
-            EmployeeRole er4 = new EmployeeRole { employee = e3, employeeID = e3.employeeID, role = r2, roleID = r2.roleID };
-            EmployeeRole er5 = new EmployeeRole { employee = e4, employeeID = e4.employeeID, role = r1, roleID = r1.roleID };
-            EmployeeRole er6 = new EmployeeRole { employee = e5, employeeID = e1.employeeID, role = r1, roleID = r1.roleID };
-            EmployeeRole er7 = new EmployeeRole { employee = e6, employeeID = e6.employeeID, role = r3, roleID = r3.roleID };
-            EmployeeRole er8 = new EmployeeRole { employee = e7, employeeID = e7.employeeID, role = r4, roleID = r4.roleID };
+            EmployeeRole er1 = new EmployeeRole { employee = e1, employeeID = e1.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er2 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er3 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r2, roleID = r2.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er4 = new EmployeeRole { employee = e3, employeeID = e3.employeeID, role = r2, roleID = r2.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er5 = new EmployeeRole { employee = e4, employeeID = e4.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er6 = new EmployeeRole { employee = e5, employeeID = e1.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er7 = new EmployeeRole { employee = e6, employeeID = e6.employeeID, role = r3, roleID = r3.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er8 = new EmployeeRole { employee = e7, employeeID = e7.employeeID, role = r4, roleID = r4.roleID, CreateDate = DateTime.Now };
 
             db.EmployeeRoles.AddOrUpdate(er1, er2, er3, er4, er5, er6, er7, er8);
 
-            LeaveReason lr1 = new LeaveReason() { leaveReasonName = "Holiday" };
-            LeaveReason lr2 = new LeaveReason() { leaveReasonName = "Sickness" };
-            LeaveReason lr3 = new LeaveReason() { leaveReasonName = "Other reasons" };
+            LeaveReason lr1 = new LeaveReason() { leaveReasonName = "Holiday", CreateDate = DateTime.Now };
+            LeaveReason lr2 = new LeaveReason() { leaveReasonName = "Sickness", CreateDate = DateTime.Now };
+            LeaveReason lr3 = new LeaveReason() { leaveReasonName = "Other reasons", CreateDate = DateTime.Now };
 
             db.LeaveReasons.AddOrUpdate(lr1, lr2, lr3);
 
-            RequestStatus rs1 = new RequestStatus() { requestStatusName = "Pending" };
-            RequestStatus rs2 = new RequestStatus() { requestStatusName = "Approved" };
-            RequestStatus rs3 = new RequestStatus() { requestStatusName = "Denied" };
+            RequestStatus rs1 = new RequestStatus() { requestStatusName = "Pending", CreateDate = DateTime.Now };
+            RequestStatus rs2 = new RequestStatus() { requestStatusName = "Approved", CreateDate = DateTime.Now };
+            RequestStatus rs3 = new RequestStatus() { requestStatusName = "Denied", CreateDate = DateTime.Now };
  
 
             db.RequestStatus.AddOrUpdate(rs1, rs2, rs3);
@@ -137,7 +137,9 @@ namespace LeaveManager.Migrations
                 employee = e1,
                 endTime =new DateTime(2012,12,12),
                 leaveReason =lr1,
-                startTime =new DateTime(2012,12,22)};
+                startTime =new DateTime(2012,12,22),
+                CreateDate = DateTime.Now
+            };
 
             LeaveRequest leaveRequest2 = new LeaveRequest
             {
@@ -153,7 +155,8 @@ namespace LeaveManager.Migrations
                 employee = e1,
                 endTime = new DateTime(2012, 12, 12),
                 leaveReason = lr1,
-                startTime = new DateTime(2012, 12, 22)
+                startTime = new DateTime(2012, 12, 22),
+                CreateDate = DateTime.Now
             };
 
 
