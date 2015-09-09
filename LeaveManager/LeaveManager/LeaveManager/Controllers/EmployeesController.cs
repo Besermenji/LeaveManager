@@ -69,7 +69,7 @@ namespace LeaveManager.Controllers
                 bool exist = Convert.ToBoolean(Request.Form[key].Split(',')[0]);
                 if (exist) {
                     
-                    db.EmployeeRoles.Add(new EmployeeRole {employee = employee, employeeID = employee.employeeID, role = r, roleID = r.roleID });
+                    db.EmployeeRoles.Add(new EmployeeRole {employee = employee, employeeID = employee.employeeID, role = r, roleID = r.roleID,CreateDate = DateTime.Now });
                 }
                 
             }
@@ -248,7 +248,7 @@ namespace LeaveManager.Controllers
                 if (exist)
                 {
 
-                    db.EmployeeRoles.Add(new EmployeeRole { employee = tmpEmployee, employeeID = tmpEmployee.employeeID, role = r, roleID = r.roleID });
+                    db.EmployeeRoles.Add(new EmployeeRole { employee = tmpEmployee, employeeID = tmpEmployee.employeeID, role = r, roleID = r.roleID,CreateDate = DateTime.Now });
                 }
 
             }

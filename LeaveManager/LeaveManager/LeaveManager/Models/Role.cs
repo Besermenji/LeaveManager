@@ -9,5 +9,6 @@ namespace LeaveManager.Models
     {
         public int roleID { get; set; }
         public string roleName { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

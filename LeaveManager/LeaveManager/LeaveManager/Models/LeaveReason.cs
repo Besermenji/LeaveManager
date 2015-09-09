@@ -12,6 +12,6 @@ namespace LeaveManager.Models
         public int leaveReasonID { get; set; }
         [Display(Name ="Leave Reason")]
         public string leaveReasonName { get; set; }
-
+        public DateTime CreateDate { get; set; }
     }
 }

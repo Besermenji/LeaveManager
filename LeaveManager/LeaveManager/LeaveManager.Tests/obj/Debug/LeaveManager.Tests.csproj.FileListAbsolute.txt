@@ -55,3 +55,5 @@ C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\D
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.csprojResolveAssemblyReference.cache
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.dll
 C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.pdb
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\itextsharp.dll
+C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\itextsharp.xml

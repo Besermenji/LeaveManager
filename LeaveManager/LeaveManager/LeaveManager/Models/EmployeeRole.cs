@@ -12,5 +12,6 @@ namespace LeaveManager.Models
         public virtual Role role { get; set; }
         public virtual int employeeID { get; set; }
         public virtual Employee employee { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

@@ -11,6 +11,9 @@ using LeaveManager.Models;
 using System.Text;
 using System.Net.Mail;
 using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+
 
 namespace LeaveManager.Controllers
 {
@@ -469,6 +472,102 @@ namespace LeaveManager.Controllers
             //db.EmployeeLeaveRequestViewModels.Remove(employeeLeaveRequestViewModel);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public static string ReplacePdfForm(LeaveRequest leaveRequest)
+        {
+
+
+
+            ////string fileNameExisting = @"\Resources\LeaveRequestTemplate.pdf";
+            //string fileNameExisting = "~/Resources/LeaveRequestTemplate.pdf";
+            string fileNameNew = Path.GetTempPath()+leaveRequest.employee.employeeName+".pdf";
+
+           // using (var existingFileStream = new FileStream(fileNameExisting, FileMode.Open))
+            using (var newFileStream = new FileStream(fileNameNew, FileMode.Create))
+            {
+                // Open existing PDF
+                var pdfReader = new PdfReader(Properties.Resources.LeaveRequestTemplatePDF);
+
+                // PdfStamper, which will create
+                var stamper = new PdfStamper(pdfReader, newFileStream);
+
+                var form = stamper.AcroFields;
+                form.GenerateAppearances = true;
+                var fieldKeys = form.Fields.Keys;
+
+
+                //setting font size and setting field text
+                form.SetFieldProperty("Employee", "textsize", 8.0f, null);
+                form.SetField("Employee", leaveRequest.employee.employeeName);
+
+                form.SetFieldProperty("AllDayEvent", "textsize", 8.0f, null);
+                form.SetField("AllDayEvent", leaveRequest.allDayEvent ? "YES" : "NO");
+
+                form.SetFieldProperty("StartTime", "textsize", 8.0f, null);
+                form.SetField("StartTime", leaveRequest.allDayEvent ? leaveRequest.startTime.ToShortDateString() : leaveRequest.startTime.ToString());
+
+                form.SetFieldProperty("EndTime", "textsize", 8.0f, null);
+                form.SetField("EndTime", leaveRequest.allDayEvent ? leaveRequest.endTime.ToShortDateString() : leaveRequest.endTime.ToString());
+
+
+                form.SetFieldProperty("LeaveReason", "textsize", 8.0f, null);
+                form.SetField("LeaveReason", leaveRequest.leaveReason.leaveReasonName);
+
+                form.SetFieldProperty("LeaveDescription", "textsize", 8.0f, null);
+                form.SetField("LeaveDescription", leaveRequest.Description);
+
+                form.SetFieldProperty("DeliveryManager", "textsize", 8.0f, null);
+                form.SetField("DeliveryManager", leaveRequest.deliveryManager.employeeName);
+
+                form.SetFieldProperty("DeliveryManagerComment", "textsize", 8.0f, null);
+                form.SetField("DeliveryManagerComment", leaveRequest.deliveryManagerComment);
+
+                form.SetFieldProperty("DepartmentManager", "textsize", 8.0f, null);
+                form.SetField("DepartmentManager", leaveRequest.departmentManager.employeeName);
+
+                form.SetFieldProperty("DepartmentManagerComment", "textsize", 8.0f, null);
+                form.SetField("DepartmentManagerComment", leaveRequest.departmentManagerComment);
+
+                form.SetFieldProperty("CreateDate", "textsize", 8.0f, null);
+                form.SetField("CreateDate", leaveRequest.CreateDate.ToString());
+
+
+                form.SetFieldProperty("EmployeeSignature", "textsize", 8.0f, null);
+                form.SetField("EmployeeSignature", leaveRequest.employee.employeeName);
+
+                form.SetFieldProperty("DeliveryManagerSignature", "textsize", 8.0f, null);
+                form.SetField("DeliveryManagerSignature", leaveRequest.deliveryManager.employeeName);
+
+
+                form.SetFieldProperty("DepartmentManagerSignature", "textsize", 8.0f, null);
+                form.SetField("DepartmentManagerSignature", leaveRequest.departmentManager.employeeName);
+
+                form.SetFieldProperty("Date", "textsize", 8.0f, null);
+                form.SetField("Date", DateTime.Now.ToShortDateString());
+
+
+
+
+
+                // "Flatten" the form so it wont be editable/usable anymore
+                stamper.FormFlattening = true;
+
+                stamper.Close();
+                pdfReader.Close();
+                return fileNameNew;
+            }
+        }
+
+        public ActionResult printPDF(int? id)
+        {
+
+            LeaveRequest lr = db.LeaveRequests.Find(id);
+                string tmp = ReplacePdfForm(lr);
+
+
+           
+            return File(@tmp, "application/pdf", lr.employee.employeeName+" "+DateTime.Now+".pdf");
         }
 
         protected override void Dispose(bool disposing)

@@ -11,5 +11,6 @@ namespace LeaveManager.Models
         public int requestStatusID { get; set; }
         [Display(Name = "Request Status")]
         public string requestStatusName { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }
