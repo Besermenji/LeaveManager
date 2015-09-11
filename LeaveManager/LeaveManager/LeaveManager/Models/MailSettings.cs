@@ -19,6 +19,8 @@ namespace LeaveManager.Models
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
 
     }
 }

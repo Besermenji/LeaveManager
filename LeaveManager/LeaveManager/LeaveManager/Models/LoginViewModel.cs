@@ -12,17 +12,16 @@ namespace LeaveManager.Models
             [Required]
             [Display(Name = "Email")]
             [EmailAddress]
-            public string email { get; set; }
+            public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
-            public string password { get; set; }
+            public string Password { get; set; }
 
+            [Display(Name = "Remember me")]
+            public bool RememberMe { get; set; }
 
-
-          
-        
 
     }
 }

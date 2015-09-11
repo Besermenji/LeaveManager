@@ -8,9 +8,9 @@ namespace LeaveManager.Models
 {
     public class RequestStatus
     {
-        public int requestStatusID { get; set; }
-        [Display(Name = "Request Status")]
-        public string requestStatusName { get; set; }
+        public int RequestStatusID { get; set; }
+        public string RequestStatusName { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

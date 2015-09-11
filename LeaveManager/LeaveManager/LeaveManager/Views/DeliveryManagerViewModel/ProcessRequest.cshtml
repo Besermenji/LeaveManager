@@ -6,11 +6,11 @@
 
 <h2>ProcessRequest</h2>
 <br />
-<b>@Html.DisplayNameFor(model => model.employee.employeeName): </b>@ViewData["employeeName"]<br /><br />
-<b>@Html.DisplayNameFor(model => model.allDayEvent): </b>@ViewData["allDay"]<br /><br />
-<b>@Html.DisplayNameFor(model => model.startTime): </b>@ViewData["startDate"]<br /><br />
-<b>@Html.DisplayNameFor(model => model.endTime): </b>@ViewData["endDate"]<br /><br />
-<b>@Html.DisplayNameFor(model => model.leaveReason): </b>@ViewData["leaveReason"]<br /><br />
+<b>@Html.DisplayNameFor(model => model.Employee.EmployeeName): </b>@ViewData["employeeName"]<br /><br />
+<b>@Html.DisplayNameFor(model => model.AllDayEvent): </b>@ViewData["allDay"]<br /><br />
+<b>@Html.DisplayNameFor(model => model.StartTime): </b>@ViewData["startDate"]<br /><br />
+<b>@Html.DisplayNameFor(model => model.EndTime): </b>@ViewData["endDate"]<br /><br />
+<b>@Html.DisplayNameFor(model => model.LeaveReason): </b>@ViewData["leaveReason"]<br /><br />
 <b>@Html.DisplayNameFor(model => model.Description): </b>@ViewData["description"]<br /><br />
 <br />
 <br />
@@ -23,23 +23,23 @@
         
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.LeaveRequestId)
+        @Html.HiddenFor(model => model.LeaveRequestInfoID)
 
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.deliveryManagerComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DeliveryManagerComment, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.deliveryManagerComment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.deliveryManagerComment, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.DeliveryManagerComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DeliveryManagerComment, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.deliveryManagerStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DeliveryManagerStatus.RequestStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("deliveryManagerStatusID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.deliveryManagerStatusID, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.DeliveryManagerStatus.RequestStatusID, "", new { @class = "text-danger" })
             </div>
         </div>
 

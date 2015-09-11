@@ -9,9 +9,11 @@ namespace LeaveManager.Models
     public class LeaveReason
     {
         [Display(Name = "Leave Reason")]
-        public int leaveReasonID { get; set; }
+        public int LeaveReasonID { get; set; }
         [Display(Name ="Leave Reason")]
-        public string leaveReasonName { get; set; }
+        public string LeaveReasonName { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
+
     }
 }

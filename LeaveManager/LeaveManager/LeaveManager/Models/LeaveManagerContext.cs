@@ -29,8 +29,13 @@ namespace LeaveManager.Models
 
         public System.Data.Entity.DbSet<LeaveManager.Models.RequestStatus> RequestStatus { get; set; }
 
-        public System.Data.Entity.DbSet<LeaveManager.Models.LeaveRequest> LeaveRequests { get; set; }
-
         public System.Data.Entity.DbSet<LeaveManager.Models.MailSettings> MailSettings { get; set; }
+
+        public System.Data.Entity.DbSet<LeaveManager.Models.LeaveRequestInfo> LeaveRequestInfo { get; set; }
+
+        public System.Data.Entity.DbSet<LeaveManager.Models.LeaveRequestDescription> LeaveRequestDescription { get; set; }
+
+
+
     }
 }

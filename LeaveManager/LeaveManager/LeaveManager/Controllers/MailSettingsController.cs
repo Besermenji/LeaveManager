@@ -10,17 +10,17 @@ using LeaveManager.Models;
 
 namespace LeaveManager.Controllers
 {
+    [AuthorizeUser(RoleName = new string[] { "Super User" })]
     public class MailSettingsController : Controller
     {
         private LeaveManagerContext db = new LeaveManagerContext();
 
-        // GET: MailSettings
+       
         public ActionResult Index()
         {
             return View(db.MailSettings.ToList());
         }
 
-        // GET: MailSettings/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -35,16 +35,21 @@ namespace LeaveManager.Controllers
             return View(mailSettings);
         }
 
-        // POST: MailSettings/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MailSettingsID,Host,Port,Username,Password")] MailSettings mailSettings)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mailSettings).State = EntityState.Modified;
+                mailSettings.CreateDate = db.MailSettings.Find(mailSettings.MailSettingsID).CreateDate;
+                mailSettings.UpdateDate = DateTime.Now;
+
+                db.MailSettings.Find(mailSettings.MailSettingsID).Host = mailSettings.Host;
+                db.MailSettings.Find(mailSettings.MailSettingsID).Port = mailSettings.Port;
+                db.MailSettings.Find(mailSettings.MailSettingsID).Username = mailSettings.Username;
+                db.MailSettings.Find(mailSettings.MailSettingsID).Password = mailSettings.Password;
+                db.MailSettings.Find(mailSettings.MailSettingsID).UpdateDate = DateTime.Now;
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

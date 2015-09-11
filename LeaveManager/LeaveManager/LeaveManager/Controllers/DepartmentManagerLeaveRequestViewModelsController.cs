@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace LeaveManager.Controllers
 {
+    [AuthorizeUser(RoleName = new string[] { "Department Manager" })]
     public class DepartmentManagerLeaveRequestViewModelsController : Controller
     {
 
@@ -18,95 +19,88 @@ namespace LeaveManager.Controllers
         // GET: DepartmentManagerLeaveRequestViewModels
         public ActionResult Index()
         {
-            List<DepartmentManagerLeaveRequestViewModel> requstsList = new List<DepartmentManagerLeaveRequestViewModel>();
+            List<DepartmentManagerLeaveRequestViewModel> requstsListViewModel = new List<DepartmentManagerLeaveRequestViewModel>();
+            Dictionary<LeaveRequestInfo, LeaveRequestDescription> leaveRequests = new Dictionary<LeaveRequestInfo, LeaveRequestDescription>();
             Employee emp = (Employee)Session["user"];
-            var m = from e in db.LeaveRequests
-                    where (e.deliveryManagerStatus.requestStatusName.Equals("Approved")) && e.departmentManagerStatus.requestStatusName.Equals("Pending") && (e.departmentManager.employeeID == emp.employeeID)
-                    select e;
 
-            
+            leaveRequests = getLatestApprovedByDelManRequests(emp.EmployeeID);
+            requstsListViewModel = mapLRToDepManViewModel(leaveRequests);
+       
+            return View(requstsListViewModel.AsQueryable());
+        }
 
-            foreach (LeaveRequest req in m)
+        private List<DepartmentManagerLeaveRequestViewModel> mapLRToDepManViewModel(Dictionary<LeaveRequestInfo, LeaveRequestDescription> leaveRequests)
+        {
+            List<DepartmentManagerLeaveRequestViewModel> viewModelList = new List<DepartmentManagerLeaveRequestViewModel>();
+
+            foreach (KeyValuePair<LeaveRequestInfo,LeaveRequestDescription> pair in leaveRequests)
             {
+                LeaveRequestInfo lri = pair.Key;
+                LeaveRequestDescription lrd = pair.Value;
+
                 DepartmentManagerLeaveRequestViewModel viewModel = new DepartmentManagerLeaveRequestViewModel()
                 {
-                    allDayEvent = req.allDayEvent,
-                    departmentManager = req.departmentManager,
-                    departmentManagerStatus = req.departmentManagerStatus,
-                    employee = req.employee,
-                    endTime = req.endTime,
-                    description = req.Description,
-                    leaveReason = req.leaveReason,
-                    startTime = req.startTime,
-                    departmentManagerComment = req.departmentManagerComment,
-                    leaveRequestID = req.leaveRequestID
+                    AllDayEvent = lrd.AllDayEvent,
+                    DepartmentManager = lrd.DepartmentManager,
+                    DepartmentManagerStatus = lrd.DepartmentManagerStatus,
+                    Employee = lri.Employee,
+                    EndTime = lrd.EndTime,
+                    Description = lrd.Description,
+                    LeaveReason = lrd.LeaveReason,
+                    StartTime = lrd.StartTime,
+                    DepartmentManagerComment = lrd.DepartmentManagerComment,
+                    LeaveRequestID = lri.LeaveRequestInfoID
 
                 };
 
-                requstsList.Add(viewModel);
-
-
+                viewModelList.Add(viewModel);
             }
 
-            return View(requstsList.AsQueryable());
+            return viewModelList;
         }
 
-        // GET: DepartmentManagerLeaveRequestViewModels/Details/5
-        public ActionResult Details(int id)
+        private Dictionary<LeaveRequestInfo, LeaveRequestDescription> getLatestApprovedByDelManRequests(int id)
         {
-            return View();
-        }
+            Dictionary<LeaveRequestInfo, LeaveRequestDescription> allRequests = EmployeeLeaveRequestViewModelsController.getAllLeaveRequests(db);
+            Dictionary<LeaveRequestInfo, LeaveRequestDescription> approvedByDelManRequests = new Dictionary<LeaveRequestInfo, LeaveRequestDescription>();
 
-        // GET: DepartmentManagerLeaveRequestViewModels/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+            foreach (KeyValuePair<LeaveRequestInfo, LeaveRequestDescription> pair in allRequests) {
 
-        // POST: DepartmentManagerLeaveRequestViewModels/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+                if (pair.Value.DepartmentManager.EmployeeID == id && pair.Value.DeliveryManagerStatus.RequestStatusName.Equals("Approved") && pair.Value.DepartmentManagerStatus.RequestStatusName.Equals("Pending")) {
 
-                return RedirectToAction("Index");
+                    approvedByDelManRequests.Add(pair.Key,pair.Value);
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return approvedByDelManRequests;
+
         }
 
         public ActionResult ProcessRequest(int id)
         {
-            LeaveRequest leaveRequest = db.LeaveRequests.Find(id);
-
-
-
+           
+            LeaveRequestInfo reqInfo = db.LeaveRequestInfo.Find(id);
+            LeaveRequestDescription reqDes = EmployeeLeaveRequestViewModelsController.getLatestDescription(reqInfo,db);
             DepartmentManagerLeaveRequestViewModel viewModel = new DepartmentManagerLeaveRequestViewModel()
             {
 
-                allDayEvent = leaveRequest.allDayEvent,
-                departmentManager = leaveRequest.departmentManager,
-                departmentManagerStatus = leaveRequest.departmentManagerStatus,
-                employee = leaveRequest.employee,
-                endTime = leaveRequest.endTime,
-                description = leaveRequest.Description,
-                leaveReason = leaveRequest.leaveReason,
-                startTime = leaveRequest.startTime,
-                departmentManagerComment = leaveRequest.departmentManagerComment,
-                leaveRequestID = leaveRequest.leaveRequestID
+                AllDayEvent = reqDes.AllDayEvent,
+                DepartmentManager = reqDes.DepartmentManager,
+                DepartmentManagerStatus = reqDes.DepartmentManagerStatus,
+                Employee = reqInfo.Employee,
+                EndTime = reqDes.EndTime,
+                Description = reqDes.Description,
+                LeaveReason = reqDes.LeaveReason,
+                StartTime = reqDes.StartTime,
+                DepartmentManagerComment = reqDes.DepartmentManagerComment,
+                LeaveRequestID = reqInfo.LeaveRequestInfoID
 
             };
-
-            // ViewBag.possibleStatuses = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName",GetRequestStatusByName(leaveRequest.departmentManagerStatus.requestStatusName).requestStatusID);
-            ViewBag.departmentManagerStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", GetRequestStatusByName(leaveRequest.departmentManagerStatus.requestStatusName).requestStatusID);
-            ViewData["employeeName"] = leaveRequest.employee.employeeName;
-            ViewData["startTime"] = leaveRequest.startTime;
-            ViewData["endTime"] = leaveRequest.endTime;
-            ViewData["allDayEvent"] = leaveRequest.allDayEvent;
+            
+            ViewBag.departmentManagerStatusID = new SelectList(db.RequestStatus, "requestStatusID", "requestStatusName", GetRequestStatusByName(reqDes.DepartmentManagerStatus.RequestStatusName).RequestStatusID);
+            ViewData["employeeName"] = reqInfo.Employee.EmployeeName;
+            ViewData["startTime"] = reqDes.StartTime;
+            ViewData["endTime"] = reqDes.EndTime;
+            ViewData["allDayEvent"] = reqDes.AllDayEvent;
 
 
             return View("DepartmentManagerProcessRequest", viewModel);
@@ -117,40 +111,33 @@ namespace LeaveManager.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var requestToUpdate = db.LeaveRequests.Find(departmentManagerLeaveRequestViewModel.leaveRequestID);
-                requestToUpdate.departmentManagerComment = departmentManagerLeaveRequestViewModel.departmentManagerComment;
-                requestToUpdate.departmentManagerStatus = db.RequestStatus.Find(departmentManagerLeaveRequestViewModel.departmentManagerStatusID);
-
+               
+                LeaveRequestInfo requestToUpdate = db.LeaveRequestInfo.Find(departmentManagerLeaveRequestViewModel.LeaveRequestID);
+                LeaveRequestDescription descToUpdate = EmployeeLeaveRequestViewModelsController.getLatestDescription(requestToUpdate,db);
+                descToUpdate.DepartmentManagerComment = departmentManagerLeaveRequestViewModel.DepartmentManagerComment;
+                descToUpdate.DepartmentManagerStatus = db.RequestStatus.Find(departmentManagerLeaveRequestViewModel.DepartmentManagerStatusID);
                 db.SaveChanges();
 
-
-                if (!requestToUpdate.departmentManagerStatus.requestStatusName.Equals("Pending"))
+                if (!descToUpdate.DepartmentManagerStatus.RequestStatusName.Equals("Pending"))
                 {
 
-                    sendMailToEmployee(db.LeaveRequests.Find(requestToUpdate.leaveRequestID).employee.employeeID);
+                    sendMailToEmployee(requestToUpdate.Employee.EmployeeID);
 
                 }
-
-
                 return RedirectToAction("Index");
             }
 
             return View();
         }
-
-
+        
         private void sendMailToEmployee(int employeeID)
         {
-            //Employee employee = db.Employees.Single(e => e.employeeID == employeeID);
-            //string email = employee.employeeEmail;
-            //string subject = "Request Updated";
-            //string body = "<h3>Your leave request have been updated by <i style=\"color: red\">department manager</i>.</h3>" + DeliveryManagerViewModelController.getLinkToRequestList();
-            //string smtpHost = "smtp.gmail.com";
-
-            //string employeeHTMLBody = getHTMLEmailForEmployee();
-            //// sendMail("leavemanager9@gmail.com", email, subject, body, smtpHost
-            //EmployeeLeaveRequestViewModelsController.sendMailUsingDBSettings(db, email, subject, employeeHTMLBody);
+            Employee employee = db.Employees.Single(e => e.EmployeeID == employeeID);
+            string email = employee.EmployeeEmail;
+            string subject = "Request Updated";
+            string employeeHTMLBody = getHTMLEmailForEmployee();
+       
+            EmployeeLeaveRequestViewModelsController.sendMailUsingDBSettings(db, email, subject, employeeHTMLBody);
         }
 
         private string getHTMLEmailForEmployee()
@@ -162,7 +149,11 @@ namespace LeaveManager.Controllers
             string textHeader = "";
             string textMessage = "Your leave request have been updated by <i style=\"color: red\">department manager</i>.";
             string buttonText = "Go to request";
-            string buttonLink = "http://localhost:9877/EmployeeLeaveRequestViewModels/Index/";
+           // string buttonLink = "http://localhost:9877/EmployeeLeaveRequestViewModels/Index/";
+
+            string buttonLink = Request.Url.GetLeftPart(UriPartial.Authority) + Request.ApplicationPath + "EmployeeLeaveRequestViewModels/Index/";
+
+       
 
             email = email.Replace("[NotificationHeader]", notHeader);
             email = email.Replace("[TextHeader]", textHeader);
@@ -172,114 +163,13 @@ namespace LeaveManager.Controllers
 
             return email;
         }
-
-        public void sendMail(string from, string to, string subject, string body, string smtpHost)
-        {
-            System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage();
-            message.From = new System.Net.Mail.MailAddress(from);
-            message.To.Add(new System.Net.Mail.MailAddress(to));
-            message.IsBodyHtml = true;
-            message.BodyEncoding = Encoding.UTF8;
-            message.Subject = subject;
-            message.Body = body;
-
-
-
-            using (var smtp = new SmtpClient())
-            {
-
-                var credential = new NetworkCredential
-                {
-
-                    UserName = "leavemanager9@gmail.com",
-                    Password = "managerleave9"
-
-                };
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = credential;
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 25;
-                smtp.EnableSsl = true;
-                smtp.Send(message);
-            }
-        }
+        
         public RequestStatus GetRequestStatusByName(string requestStatusName)
         {
 
-            RequestStatus request = db.RequestStatus.Single(r => r.requestStatusName == requestStatusName);
+            RequestStatus request = db.RequestStatus.Single(r => r.RequestStatusName == requestStatusName);
             return request;
         }
-        // GET: DepartmentManagerLeaveRequestViewModels/Edit/5
-        public ActionResult Edit(int id)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // POST: DepartmentManagerLeaveRequestViewModels/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-
-
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DepartmentManagerLeaveRequestViewModels/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: DepartmentManagerLeaveRequestViewModels/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-        private List<LeaveRequest> getLRForCurrentUser()
-        {
-
-            Employee emp = (Employee)Session["user"];
-
-
-
-
-            var e = from l in db.LeaveRequests
-                    where l.employee.employeeID == emp.employeeID
-                    select l;
-
-            return e.ToList();
-        }
-
+       
     }
 }

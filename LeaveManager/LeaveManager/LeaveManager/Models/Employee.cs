@@ -9,28 +9,29 @@ namespace LeaveManager.Models
     public class Employee
     {
         [Display(Name = "Employee")]
-        public int employeeID { get; set; }
+        public int EmployeeID { get; set; }
         [Display(Name = "Employee Name")]
-        public string employeeName
+        public string EmployeeName
         {
             get
             {
-                return string.Format("{0} {1}", employeeFirstName, employeeLastName);
+                return string.Format("{0} {1}", EmployeeFirstName, EmployeeLastName);
             }
         }
         [Display(Name = "First Name")]
         [Required]
-        public string employeeFirstName { get; set; }
+        public string EmployeeFirstName { get; set; }
         [Display(Name = "Last Name")]
         [Required]
-        public string employeeLastName { get; set; }
+        public string EmployeeLastName { get; set; }
         [Display(Name = "Employee E-mail")]
         [DataType(DataType.EmailAddress)]
         [Required]
-        public string employeeEmail { get; set; }
+        public string EmployeeEmail { get; set; }
         [Display(Name = "Password")]
        
-        public string passwordHash { get; set; }
+        public string PasswordHash { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

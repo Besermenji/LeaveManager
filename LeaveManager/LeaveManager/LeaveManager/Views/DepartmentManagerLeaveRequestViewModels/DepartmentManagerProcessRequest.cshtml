@@ -15,21 +15,21 @@
         <h4>Process Request</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.leaveRequestID)
+        @Html.HiddenFor(model => model.LeaveRequestID)
 
 
-        @Html.LabelFor(model => model.employee.employeeName) : @ViewData["employeeName"]<br/><br/>
+        @Html.LabelFor(model => model.Employee.EmployeeName) : @ViewData["employeeName"]<br/><br/>
        
         @if ((bool)@ViewData["allDayEvent"])
         {
 
-            @Html.LabelFor(model => model.startTime) <text>:</text> @ViewData["startTime"].ToString().Split(' ')[0] <br /><br />
-            @Html.LabelFor(model => model.endTime) <text>:</text>  @ViewData["endTime"].ToString().Split(' ')[0] <br /><br />
+            @Html.LabelFor(model => model.StartTime) <text>:</text> @ViewData["startTime"].ToString().Split(' ')[0] <br /><br />
+            @Html.LabelFor(model => model.EndTime) <text>:</text>  @ViewData["endTime"].ToString().Split(' ')[0] <br /><br />
         }
         else
         {
-           @Html.LabelFor(model => model.startTime) <text>:</text> @ViewData["startTime"]<br /><br />
-           @Html.LabelFor(model => model.endTime) <text>:</text> @ViewData["endTime"]<br /><br />
+           @Html.LabelFor(model => model.StartTime) <text>:</text> @ViewData["startTime"]<br /><br />
+           @Html.LabelFor(model => model.EndTime) <text>:</text> @ViewData["endTime"]<br /><br />
         }
 
       
@@ -38,27 +38,27 @@
             
        
         <div class="form-group">
-            @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.description, new { @class = "form-control", @readonly = "readonly" })
-                @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.departmentManagerComment, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepartmentManagerComment, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.departmentManagerComment, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.departmentManagerComment, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.DepartmentManagerComment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartmentManagerComment, "", new { @class = "text-danger" })
             </div>
         </div>
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.departmentManagerStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepartmentManagerStatusID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("departmentManagerStatusID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.departmentManagerStatusID, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.DepartmentManagerStatusID, "", new { @class = "text-danger" })
             </div>
         </div>
         @*<div class="form-group">

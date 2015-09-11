@@ -9,48 +9,48 @@ namespace LeaveManager.Models
     public class EmployeeLeaveRequestViewModel
     {
         [Key]
-        public int leaveRequestID { get; set; }
+        public int LeaveRequestID { get; set; }
         [Display(Name = "Employee")]
-        public int employeeID { get; set; }
+        public int EmployeeID { get; set; }
         [Display(Name = "Employee")]
-        public string employeeName { get; set; }
+        public string EmployeeName { get; set; }
         [Display(Name = "Employee")]
-        public virtual Employee employee { get; set; }
+        public virtual Employee Employee { get; set; }
         [Display(Name = "Is All Day Event")]
-        public bool allDayEvent { get; set; }
+        public bool AllDayEvent { get; set; }
         [DataType(DataType.DateTime)]
         [Display(Name = "Start Date")]
-        public DateTime startTime { get; set; }
+        public DateTime StartTime { get; set; }
         [Display(Name = "End Date")]
-        public DateTime endTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         [Display(Name = "Leave Reason")]
-        public int leaveReasonID { get; set; }
+        public int LeaveReasonID { get; set; }
         [Display(Name = "Leave Reason")]
-        public virtual LeaveReason leaveReason { get; set; }
+        public virtual LeaveReason LeaveReason { get; set; }
 
         public string Description { get; set; }
         [Display(Name = "Delivery Manager")]
-        public int deliveryManagerID { get; set; }
+        public int DeliveryManagerID { get; set; }
         [Display(Name = "Delivery Manager")]
-        public virtual Employee deliveryManager { get; set; }
+        public virtual Employee DeliveryManager { get; set; }
 
         [Display(Name = "Delivery Manager")]
-        public string deliveryManagerName { get; set; }
+        public string DeliveryManagerName { get; set; }
         [Display(Name = "Department Manager")]
-        public int departmentManagerID { get; set; }
+        public int DepartmentManagerID { get; set; }
         [Display(Name = "Delivery Manager Comment")]
-        public string deliveryManagerComment { get; set; }
+        public string DeliveryManagerComment { get; set; }
         [Display(Name = "Department Manager")]
-        public string departmentManagerName { get; set; }
+        public string DepartmentManagerName { get; set; }
         [Display(Name = "Department Manager")]
-        public virtual Employee departmentManager { get; set; }
+        public virtual Employee DepartmentManager { get; set; }
         [Display(Name = "Department Manager Comment")]
-        public string departmentManagerComment { get; set; }
+        public string DepartmentManagerComment { get; set; }
 
         [Display(Name = "Delivery Manager Status")]
-        public virtual RequestStatus deliveryManagerStatus { get; set; }
-        public virtual RequestStatus departmentManagerStatus { get; set; }
+        public virtual RequestStatus DeliveryManagerStatus { get; set; }
+        public virtual RequestStatus DepartmentManagerStatus { get; set; }
 
     }
 }

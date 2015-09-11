@@ -1,4 +1,6 @@
-﻿@model LeaveManager.Models.AccountSettingsViewModel
+﻿@{  LeaveManager.Models.Employee user = (LeaveManager.Models.Employee)HttpContext.Current.Session["user"]; }
+@{  List<string> roles = (List<string>)HttpContext.Current.Session["roles"]; }
+@model LeaveManager.Models.AccountSettingsViewModel
 
 @{
     ViewBag.Title = "AccountSettings";
@@ -10,44 +12,44 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Employee</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.employeeID)
+        @Html.HiddenFor(model => model.EmployeeID)
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.employeeEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeEmail, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.employeeEmail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.employeeEmail, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.EmployeeEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmployeeEmail, "", new { @class = "text-danger" })
        
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.oldPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.OldPassword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.oldPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.oldPassword, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.OldPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.newPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NewPassword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.newPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.newPassword, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.confirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -60,7 +62,35 @@
 }
 
 <div>
-    @Html.ActionLink("Cancel", "Index","EmployeeLeaveRequestViewModels")
+    @{
+        string view = "";
+
+        if (roles.Contains("Super User"))
+        {
+            view = "EmployeeLeaveRequestViewModels";
+        }
+        else if (roles.Contains("Department Manager"))
+        {
+            view = "DepartmentManagerLeaveRequestViewModels";
+        }
+        else if (roles.Contains("Delivery Manager"))
+        {
+            view = "DeliveryManagerViewModel";
+        }
+        else if (roles.Contains("Worker"))
+        {
+            view = "EmployeeLeaveRequestViewModels";
+        }
+        else
+        {
+            view = "EmployeeLeaveRequestViewModels";
+        }
+
+        @Html.ActionLink("Cancel", "Index", view)
+    }
+   
+
+    
 </div>
 
 @section Scripts {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,8 +8,9 @@ namespace LeaveManager.Models
 {
     public class Role
     {
-        public int roleID { get; set; }
-        public string roleName { get; set; }
+        public int RoleID { get; set; }
+        public string RoleName { get; set; }
         public DateTime CreateDate { get; set; }
+        public DateTime UpdateDate { get; set; }
     }
 }

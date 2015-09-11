@@ -30,16 +30,16 @@ namespace LeaveManager.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            /*Employee e1 = new Employee { employeeID = 100, employeeFirstName = "Dzordz", employeeLastName = "Dzonson", employeeEmail = "dzordz.dzonson@gmail.com" };
-            Employee e2 = new Employee { employeeID = 101, employeeFirstName = "Beni", employeeLastName = "Benic", employeeEmail = "beni.benic@gmail.com"};
+            /*Employee e1 = new Employee { EmployeeID = 100, EmployeeFirstName = "Dzordz", EmployeeLastName = "Dzonson", EmployeeEmail = "dzordz.dzonson@gmail.com" };
+            Employee e2 = new Employee { EmployeeID = 101, EmployeeFirstName = "Beni", EmployeeLastName = "Benic", EmployeeEmail = "beni.benic@gmail.com"};
 
-            Role r1 = new Role { roleID = 100, roleName = "TestRole1" };
-            Role r2 = new Role { roleID = 101, roleName = "TestRole2" };
+            Role r1 = new Role { RoleID = 100, RoleName = "TestRole1" };
+            Role r2 = new Role { RoleID = 101, RoleName = "TestRole2" };
 
-            EmployeeRole er1 = new EmployeeRole {employeeRoleID = 100, employee = e1, employeeID = e1.employeeID, role = r1, roleID = r1.roleID};
-            EmployeeRole er2 = new EmployeeRole { employeeRoleID = 101, employee = e1, employeeID = e1.employeeID, role = r2, roleID = r2.roleID };
+            EmployeeRole er1 = new EmployeeRole {EmployeeRoleID = 100, Employee = e1, EmployeeID = e1.EmployeeID, Role = r1, RoleID = r1.RoleID};
+            EmployeeRole er2 = new EmployeeRole { EmployeeRoleID = 101, Employee = e1, EmployeeID = e1.EmployeeID, Role = r2, RoleID = r2.RoleID };
 
-            LeaveReason lr1 = new LeaveReason { leaveReasonID = 101, leaveReasonName = "sickness" };
+            LeaveReason lr1 = new LeaveReason { leaveReasonID = 101, LeaveReasonName = "sickness" };
 
 
             var db = new LeaveManagerContext();
@@ -54,8 +54,8 @@ namespace LeaveManager.Migrations
 
 
             /*
-             LeaveReason lr1 = new LeaveReason { leaveReasonName = "died one more time" };
-             RequestStatus rs1 = new RequestStatus { requestStatusName = "pending" };
+             LeaveReason lr1 = new LeaveReason { LeaveReasonName = "died one more time" };
+             RequestStatus rs1 = new RequestStatus { RequestStatusName = "pending" };
              var db = new LeaveManagerContext();
              db.LeaveReasons.Add(lr1);
              db.RequestStatus.Add(rs1);
@@ -69,98 +69,60 @@ namespace LeaveManager.Migrations
 
 
 
-            ////Add data to database
-            var db = new LeaveManagerContext();
-            populateDatabase(db);
+            //Add data to database
+            //var db = new LeaveManagerContext();
+            //populateDatabase(db);
 
-            // ////Initial Mail Settings
-            //////var db = new LeaveManagerContext();
-            // MailSettings ms = new MailSettings { Host = "smtp.gmail.com", Port = 25, Username = "leavemanager9@gmail.com", Password = "managerleave9" };
-            // db.MailSettings.AddOrUpdate(ms);
-            // db.SaveChanges();
+            // Initial Mail Settings
+            var db = new LeaveManagerContext();
+            MailSettings ms = new MailSettings { Host = "smtp.gmail.com", Port = 25, Username = "leavemanager9@gmail.com", Password = "managerleave9" ,CreateDate = DateTime.Now, UpdateDate = DateTime.Now};
+            db.MailSettings.AddOrUpdate(ms);
+            db.SaveChanges();
 
         }
 
         private void populateDatabase(LeaveManagerContext db)
         {
-            Employee e1 = new Employee { employeeFirstName = "Pera", employeeLastName = "Peric", employeeEmail = "pera.peric@gmail.com", passwordHash = EmployeesController.getHashedPassword("pera"), CreateDate = DateTime.Now };
-            Employee e2 = new Employee { employeeFirstName = "Mitar", employeeLastName = "Mitric", employeeEmail = "mitar.mitric@gmail.com", passwordHash = EmployeesController.getHashedPassword("mitar"), CreateDate = DateTime.Now };
-            Employee e3 = new Employee { employeeFirstName = "Zika", employeeLastName = "Zikic", employeeEmail = "zika.zikic@gmail.com", passwordHash = EmployeesController.getHashedPassword("zika"), CreateDate = DateTime.Now };
-            Employee e4 = new Employee { employeeFirstName = "Marina", employeeLastName = "Maric", employeeEmail = "marina.maric@gmail.com", passwordHash = EmployeesController.getHashedPassword("marina"), CreateDate = DateTime.Now };
-            Employee e5 = new Employee { employeeFirstName = "Maja", employeeLastName = "Majic", employeeEmail = "maja.majic@gmail.com", passwordHash = EmployeesController.getHashedPassword("maja"), CreateDate = DateTime.Now };
-            Employee e6 = new Employee { employeeFirstName = "Nikola", employeeLastName = "Nikolic", employeeEmail = "nikola.nikolic@gmail.com", passwordHash = EmployeesController.getHashedPassword("nikola"), CreateDate = DateTime.Now };
-            Employee e7 = new Employee { employeeFirstName = "Marko", employeeLastName = "Markovic", employeeEmail = "marko.markovic@gmail.com", passwordHash = EmployeesController.getHashedPassword("marko"), CreateDate = DateTime.Now };
+            Employee e1 = new Employee { EmployeeFirstName = "Pera", EmployeeLastName = "Peric", EmployeeEmail = "pera.peric@gmail.com", PasswordHash = EmployeesController.getHashedPassword("pera"), CreateDate = DateTime.Now ,UpdateDate = DateTime.Now};
+            Employee e2 = new Employee { EmployeeFirstName = "Mitar", EmployeeLastName = "Mitric", EmployeeEmail = "mitar.mitric@gmail.com", PasswordHash = EmployeesController.getHashedPassword("mitar"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Employee e3 = new Employee { EmployeeFirstName = "Zika", EmployeeLastName = "Zikic", EmployeeEmail = "zika.zikic@gmail.com", PasswordHash = EmployeesController.getHashedPassword("zika"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Employee e4 = new Employee { EmployeeFirstName = "Marina", EmployeeLastName = "Maric", EmployeeEmail = "marina.maric@gmail.com", PasswordHash = EmployeesController.getHashedPassword("marina"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Employee e5 = new Employee { EmployeeFirstName = "Maja", EmployeeLastName = "Majic", EmployeeEmail = "maja.majic@gmail.com", PasswordHash = EmployeesController.getHashedPassword("maja"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Employee e6 = new Employee { EmployeeFirstName = "Nikola", EmployeeLastName = "Nikolic", EmployeeEmail = "nikola.nikolic@gmail.com", PasswordHash = EmployeesController.getHashedPassword("nikola"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Employee e7 = new Employee { EmployeeFirstName = "Marko", EmployeeLastName = "Markovic", EmployeeEmail = "marko.markovic@gmail.com", PasswordHash = EmployeesController.getHashedPassword("marko"), CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
 
             db.Employees.AddOrUpdate(e1, e2, e3, e4, e5, e6, e7);
 
-            Role r1 = new Role { roleName = "Worker", CreateDate=DateTime.Now  };
-            Role r2 = new Role { roleName = "Delivery Manager", CreateDate = DateTime.Now };
-            Role r3 = new Role { roleName = "Department Manager", CreateDate = DateTime.Now };
-            Role r4 = new Role { roleName = "Super User", CreateDate = DateTime.Now };
+            Role r1 = new Role { RoleName = "Worker",CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Role r2 = new Role { RoleName = "Delivery Manager" ,CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Role r3 = new Role { RoleName = "Department Manager", CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            Role r4 = new Role { RoleName = "Super User" ,CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
 
             db.Roles.AddOrUpdate(r1, r2, r3, r4);
 
-            EmployeeRole er1 = new EmployeeRole { employee = e1, employeeID = e1.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er2 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er3 = new EmployeeRole { employee = e2, employeeID = e2.employeeID, role = r2, roleID = r2.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er4 = new EmployeeRole { employee = e3, employeeID = e3.employeeID, role = r2, roleID = r2.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er5 = new EmployeeRole { employee = e4, employeeID = e4.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er6 = new EmployeeRole { employee = e5, employeeID = e1.employeeID, role = r1, roleID = r1.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er7 = new EmployeeRole { employee = e6, employeeID = e6.employeeID, role = r3, roleID = r3.roleID, CreateDate = DateTime.Now };
-            EmployeeRole er8 = new EmployeeRole { employee = e7, employeeID = e7.employeeID, role = r4, roleID = r4.roleID, CreateDate = DateTime.Now };
+            EmployeeRole er1 = new EmployeeRole { Employee = e1, Role = r1, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er2 = new EmployeeRole { Employee = e2, Role = r1, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er3 = new EmployeeRole { Employee = e2, Role = r2, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er4 = new EmployeeRole { Employee = e3, Role = r2, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er5 = new EmployeeRole { Employee = e4, Role = r1, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er6 = new EmployeeRole { Employee = e5, Role = r1, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er7 = new EmployeeRole { Employee = e6, Role = r3, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            EmployeeRole er8 = new EmployeeRole { Employee = e7, Role = r4, CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
 
             db.EmployeeRoles.AddOrUpdate(er1, er2, er3, er4, er5, er6, er7, er8);
 
-            LeaveReason lr1 = new LeaveReason() { leaveReasonName = "Holiday", CreateDate = DateTime.Now };
-            LeaveReason lr2 = new LeaveReason() { leaveReasonName = "Sickness", CreateDate = DateTime.Now };
-            LeaveReason lr3 = new LeaveReason() { leaveReasonName = "Other reasons", CreateDate = DateTime.Now };
+            LeaveReason lr1 = new LeaveReason() { LeaveReasonName = "Holiday", CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            LeaveReason lr2 = new LeaveReason() { LeaveReasonName = "Sickness",CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            LeaveReason lr3 = new LeaveReason() { LeaveReasonName = "Other reasons", CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
 
             db.LeaveReasons.AddOrUpdate(lr1, lr2, lr3);
 
-            RequestStatus rs1 = new RequestStatus() { requestStatusName = "Pending", CreateDate = DateTime.Now };
-            RequestStatus rs2 = new RequestStatus() { requestStatusName = "Approved", CreateDate = DateTime.Now };
-            RequestStatus rs3 = new RequestStatus() { requestStatusName = "Denied", CreateDate = DateTime.Now };
- 
+            RequestStatus rs1 = new RequestStatus() { RequestStatusName = "Pending", CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            RequestStatus rs2 = new RequestStatus() { RequestStatusName = "Approved",CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
+            RequestStatus rs3 = new RequestStatus() { RequestStatusName = "Denied" ,CreateDate = DateTime.Now, UpdateDate = DateTime.Now };
 
             db.RequestStatus.AddOrUpdate(rs1, rs2, rs3);
 
-            LeaveRequest leaveRequest1 = new LeaveRequest {
-                allDayEvent = true,
-                deliveryManager = e3, 
-               
-                deliveryManagerComment = "",
-                departmentManager = e6,
-                deliveryManagerStatus = rs2,
-                departmentManagerStatus = rs1,
-                departmentManagerComment = "",
-                Description = "My wifes birthday",
-                employee = e1,
-                endTime =new DateTime(2012,12,12),
-                leaveReason =lr1,
-                startTime =new DateTime(2012,12,22),
-                CreateDate = DateTime.Now
-            };
-
-            LeaveRequest leaveRequest2 = new LeaveRequest
-            {
-                allDayEvent = true,
-                deliveryManager = e3,
-                deliveryManagerStatus = rs2,
-                departmentManagerStatus = rs1,
-                deliveryManagerComment = "",
-                departmentManager = e6,
-
-                departmentManagerComment = "",
-                Description = "My wifes birthday",
-                employee = e1,
-                endTime = new DateTime(2012, 12, 12),
-                leaveReason = lr1,
-                startTime = new DateTime(2012, 12, 22),
-                CreateDate = DateTime.Now
-            };
-
-
-            //db.LeaveRequests.AddOrUpdate(leaveRequest1,leaveRequest2);
             db.SaveChanges();
 
 
@@ -173,8 +135,6 @@ namespace LeaveManager.Migrations
                 db.Employees.Remove(e);
             }
 
-           
-
             foreach (var e in db.EmployeeRoles)
             {
                 db.EmployeeRoles.Remove(e);
@@ -183,11 +143,6 @@ namespace LeaveManager.Migrations
             foreach (var e in db.LeaveReasons)
             {
                 db.LeaveReasons.Remove(e);
-            }
-
-            foreach (var e in db.LeaveRequests)
-            {
-                db.LeaveRequests.Remove(e);
             }
 
             foreach (var e in db.RequestStatus)

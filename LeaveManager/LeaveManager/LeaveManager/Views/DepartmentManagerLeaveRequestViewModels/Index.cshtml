@@ -11,22 +11,22 @@
     <tr>
 
         <th>
-            @Html.DisplayNameFor(model => model.employee)
+            @Html.DisplayNameFor(model => model.Employee)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+            @Html.DisplayNameFor(model => model.LeaveReason.LeaveReasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.allDayEvent)
+            @Html.DisplayNameFor(model => model.AllDayEvent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startTime)
+            @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endTime)
+            @Html.DisplayNameFor(model => model.EndTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentManager)
+            @Html.DisplayNameFor(model => model.DepartmentManager)
         </th>
 
         <th></th>
@@ -38,42 +38,42 @@
 
 
             <td>
-                @Html.DisplayFor(modelItem => item.employee.employeeName)
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+                @Html.DisplayFor(modelItem => item.LeaveReason.LeaveReasonName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.allDayEvent)
+                @Html.DisplayFor(modelItem => item.AllDayEvent)
             </td>
             <td>
-                @if (item.allDayEvent)
+                @if (item.AllDayEvent)
                 {
-                    @Html.DisplayFor(modelItem => item.startTime).ToString().Split(' ')[0]
+                    @Html.DisplayFor(modelItem => item.StartTime).ToString().Split(' ')[0]
                 }
                 else
                 {
-                    @Html.DisplayFor(modelItem => item.startTime)
+                    @Html.DisplayFor(modelItem => item.StartTime)
                 }
             </td>
             <td>
-                @if (item.allDayEvent)
+                @if (item.AllDayEvent)
                 {
-                    @Html.DisplayFor(modelItem => item.endTime).ToString().Split(' ')[0]
+                    @Html.DisplayFor(modelItem => item.EndTime).ToString().Split(' ')[0]
                 }
                 else
                 {
-                    @Html.DisplayFor(modelItem => item.endTime)
+                    @Html.DisplayFor(modelItem => item.EndTime)
                 }
             </td>
 
 
             <td>
-                @Html.DisplayFor(modelItem => item.departmentManager.employeeName)
+                @Html.DisplayFor(modelItem => item.DepartmentManager.EmployeeName)
             </td>
 
             <td>
-                @Html.ActionLink("Process Request", "ProcessRequest", new { id = item.leaveRequestID })
+                @Html.ActionLink("Process Request", "ProcessRequest", new { id = item.LeaveRequestID })
 
             </td>
 

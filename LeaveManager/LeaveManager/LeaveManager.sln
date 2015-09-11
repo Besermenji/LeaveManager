@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveManager", "LeaveManage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveManager.Tests", "LeaveManager.Tests\LeaveManager.Tests.csproj", "{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{C756C8DE-8BBA-4119-A843-07EC47CC32A6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,16 +21,12 @@ Global
 		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80AD41E6-1E1F-4F7C-84C1-F368B8C06B14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C756C8DE-8BBA-4119-A843-07EC47CC32A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C756C8DE-8BBA-4119-A843-07EC47CC32A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C756C8DE-8BBA-4119-A843-07EC47CC32A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C756C8DE-8BBA-4119-A843-07EC47CC32A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
+		SccNumberOfProjects = 3
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://bervacanin.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -42,8 +36,5 @@ Global
 		SccProjectUniqueName2 = LeaveManager\\LeaveManager.csproj
 		SccProjectName2 = LeaveManager
 		SccLocalPath2 = LeaveManager
-		SccProjectUniqueName3 = Helpers\\Helpers.csproj
-		SccProjectName3 = Helpers
-		SccLocalPath3 = Helpers
 	EndGlobalSection
 EndGlobal

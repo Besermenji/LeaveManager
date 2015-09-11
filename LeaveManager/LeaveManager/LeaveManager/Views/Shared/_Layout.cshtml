@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Levi9 Leave Manager</title>
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/css")   
     @Scripts.Render("~/bundles/modernizr")
 
     <script src="@Url.Content("~/Scripts/jquery.js")"></script>
@@ -32,7 +32,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="http://levi9.com">
-                    <img style="background-color:transparent,ActiveBorder:none" src=' ~/Resources/Levi9.png' />
+                    @*<img style="background-color:transparent,ActiveBorder:none" src=' ~/Resources/Levi9.png' />*@
+                    <img style="background-color:transparent,ActiveBorder:none" src='http://iasi.jobshop.ro/2014/wp-content/themes/JS14_Iasi/images/sigle/companii/levi9.png' />
                 </a>
             </div>
             <div class="navbar-collapse collapse">
@@ -43,7 +44,8 @@
                     {
                         if (@roles.Contains("Worker"))
                         {
-                            <li>@Html.ActionLink("List Of All Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
+                            <li>@Html.ActionLink("List Of Requests", "Index", "EmployeeLeaveRequestViewModels")</li>
+                          
                         }
 
                         if (@roles.Contains("Delivery Manager"))
@@ -63,7 +65,7 @@
                         }
 
 
-                        <li>@Html.ActionLink(@user.employeeName, "", "")</li>
+                        <li>@Html.ActionLink(@user.EmployeeName, "AccountSettings", "Employees")</li>
                         <li>@Html.ActionLink("Log out", "Logout", "Login")</li>
                     }
                     else
@@ -88,7 +90,10 @@
             </div>
         </div>
     </div>
+  
+    
     <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer style="position:absolute; bottom:0;">

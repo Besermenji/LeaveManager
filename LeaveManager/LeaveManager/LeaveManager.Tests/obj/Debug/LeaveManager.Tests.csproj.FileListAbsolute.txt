@@ -1,59 +1,34 @@
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll.config
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.pdb
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Optimization.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.pdb
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Optimization.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.dll
-C:\Users\Besermenji\Desktop\leave manager from work\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.pdb
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll.config
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.pdb
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Helpers.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Optimization.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\EntityFramework.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\LeaveManager.pdb
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Helpers.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\System.Web.Optimization.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\EntityFramework.xml
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.csprojResolveAssemblyReference.cache
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.pdb
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\itextsharp.dll
-C:\Users\v.besermenji\Desktop\LeaveManager\LeaveManager\LeaveManager.Tests\bin\Debug\itextsharp.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll.config
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\LeaveManager.Tests.pdb
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\EntityFramework.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\LeaveManager.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\itextsharp.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\LeaveManager.pdb
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\EntityFramework.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.csprojResolveAssemblyReference.cache
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.dll
+C:\Users\j.sulja\Source\Workspaces\LeaveManager\LeaveManagerV2\LeaveManager.Tests\obj\Debug\LeaveManager.Tests.pdb

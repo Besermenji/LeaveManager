@@ -31,14 +31,14 @@
     
 
         <div class="form-group">
-            @Html.LabelFor(model => model.employeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 <div class="col-md-4 pull-left" style="margin-left:-15px">
                     <p>
-                        <input id="employeeInput" class="form-control" type="text" name="employeeName" placeholder="Start typing your name.." value="@user.employeeName" readonly="readonly" />
+                        <input id="employeeInput" class="form-control" type="text" name="employeeName" placeholder="Start typing your name.." value="@user.EmployeeName" readonly="readonly" />
                         
-                        @Html.ValidationMessageFor(model => model.employeeName, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
                     </p>
                 
                     <span hidden id="errorEmployee" class="text-danger field-validation-error" data-valmsg-for="employeeInput" data-valmsg-replace="true">
@@ -63,28 +63,31 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allDayEvent, htmlAttributes: new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.AllDayEvent, htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.allDayEvent, new { @id = "allDayEvent" })
-                    @Html.ValidationMessageFor(model => model.allDayEvent, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.AllDayEvent, new { @id = "allDayEvent" })
+                    @Html.ValidationMessageFor(model => model.AllDayEvent, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.startTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <p>
                     @*<input id="datetimepicker" type="text">*@
                    
-                    @Html.EditorFor(model => model.startTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerStart"} })
+                    @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerStart"} })
                     <script type="text/javascript">
  
                          checked = false;
 
-                        $('#allDayEvent').click(function () {
+                        $('#AllDayEvent').click(function () {
                             checked = !checked;
+                            
+                         
+
                         });
 
 
@@ -110,16 +113,16 @@
                 </p>
 
 
-                @Html.ValidationMessageFor(model => model.startTime, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.endTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <p>
                     
-                    @Html.EditorFor(model => model.endTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerEnd" } })
+                    @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerEnd" } })
                     <script type="text/javascript">
 
                         jQuery('#datetimepickerEnd').datetimepicker({
@@ -145,15 +148,15 @@
                 </p>
 
 
-                @Html.ValidationMessageFor(model => model.startTime, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.leaveReason.leaveReasonName, "Leave Reason", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LeaveReason.LeaveReasonName, "Leave Reason", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("leaveReasonID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.leaveReason.leaveReasonID, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.LeaveReason.LeaveReasonID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -175,7 +178,7 @@
         </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.deliveryManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DeliveryManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
 
@@ -209,7 +212,7 @@
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.departmentManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepartmentManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="col-md-4 pull-left" style="margin-left:-15px">
                     <p>
@@ -312,9 +315,9 @@
                
                 $.each(data, function (index, item) {
                     
-                    employees.push(item.employeeName);
+                    employees.push(item.EmployeeName);
                 
-                    $("#ddEmp").append('<li><a>' + item.employeeName + '</a></li>');
+                    $("#ddEmp").append('<li><a>' + item.EmployeeName + '</a></li>');
                    
                 });
 
@@ -334,9 +337,9 @@
 
                 $.each(data, function (index, item) {
 
-                    delManagers.push(item.employeeName);
+                    delManagers.push(item.EmployeeName);
 
-                    $("#ddDel").append('<li><a>' + item.employeeName + '</a></li>');
+                    $("#ddDel").append('<li><a>' + item.EmployeeName + '</a></li>');
                 });
 
 
@@ -353,9 +356,9 @@
 
                 $.each(data, function (index, item) {
 
-                    depManagers.push(item.employeeName);
+                    depManagers.push(item.EmployeeName);
 
-                    $("#ddDep").append('<li><a>' + item.employeeName + '</a></li>');
+                    $("#ddDep").append('<li><a>' + item.EmployeeName + '</a></li>');
                 });
 
 
@@ -535,7 +538,7 @@
 
             $(document).ready(function () {
 
-                initDDEmployee();
+               // initDDEmployee();
 
 
             });

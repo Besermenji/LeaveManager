@@ -12,43 +12,37 @@ namespace LeaveManager.Models
         public int DeliveryManagerLeaveRequestViewModelID { get; set; }
 
         [Display(Name = "Employee Name")]
-        public int EmployeeID { get; set; }
-        public virtual Employee employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
-            //test
         [Display(Name = "All Day Event?")]
-        public bool allDayEvent { get; set; }
+        public bool AllDayEvent { get; set; }
 
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
-        public DateTime startTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         [Display(Name = "End Date")]
         [DataType(DataType.Date)]
-        public DateTime endTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         [Display(Name = "Leave Reason")]
-        public int LeaveReasonID { get; set; }
-        [Display(Name = "Leave Reason")]
-        public virtual LeaveReason leaveReason { get; set; }
+        public virtual LeaveReason LeaveReason { get; set; }
 
         [Display(Name = "Leave Reason Description")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Display(Name = "Delivery Manager")]
-        public int DeliveryManagerID { get; set; }
-        public virtual Employee deliveryManager { get; set; }
+        public virtual Employee DeliveryManager { get; set; }
 
         [Display(Name = "Delivery Manager Status")]
-        public int deliveryManagerStatusID { get; set; }
-        public virtual RequestStatus deliveryManagerStatus { get; set; }
+        public virtual RequestStatus DeliveryManagerStatus { get; set; }
 
         [DataType(DataType.MultilineText)]
         [Display(Name = "Delivery Manager Comment")]
-        public string deliveryManagerComment { get; set; }
-      
-        public int LeaveRequestId { get; set; }
+        public string DeliveryManagerComment { get; set; }
+
+        public int LeaveRequestInfoID { get; set; }
 
     }
 }

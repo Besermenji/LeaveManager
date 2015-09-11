@@ -12,66 +12,49 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+            @Html.DisplayNameFor(model => model.LeaveReason.LeaveReasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.employee.employeeName)
+            @Html.DisplayNameFor(model => model.Employee.EmployeeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.allDayEvent)
+            @Html.DisplayNameFor(model => model.AllDayEvent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startTime)
+            @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endTime)
+            @Html.DisplayNameFor(model => model.EndTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.deliveryManager.employeeName)
-        </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.deliveryManagerComment)
-        </th>*@
-        @*<th>
-            @Html.DisplayNameFor(model => model.LeaveRequestId)
-        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
+            @Html.DisplayFor(modelItem => item.LeaveReason.LeaveReasonName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.employee.employeeName)
+            @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.allDayEvent)
+            @Html.DisplayFor(modelItem => item.AllDayEvent)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.startTime)
+            @Html.DisplayFor(modelItem => item.StartTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.endTime)
+            @Html.DisplayFor(modelItem => item.EndTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.deliveryManager.employeeName)
-        </td>*@
-        @*<td>
-            @Html.DisplayFor(modelItem => item.deliveryManagerComment)
-        </td>*@
-        @*<td>
-            @Html.DisplayFor(modelItem => item.LeaveRequestId)
-        </td>*@
+  
         <td>
-            @Html.ActionLink("Process Request", "ProcessRequest", new { id=item.LeaveRequestId }) |
+            @Html.ActionLink("Process Request", "ProcessRequest", new { id=item.LeaveRequestInfoID }) |
             
         </td>
     </tr>

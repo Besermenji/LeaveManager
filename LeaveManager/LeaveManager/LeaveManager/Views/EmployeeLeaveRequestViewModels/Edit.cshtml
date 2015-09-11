@@ -1,5 +1,5 @@
 ﻿@model LeaveManager.Models.EmployeeLeaveRequestViewModel
-
+@{  LeaveManager.Models.Employee user = (LeaveManager.Models.Employee)HttpContext.Current.Session["user"]; }
 @{
     ViewBag.Title = "Edit";
 }
@@ -10,82 +10,217 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>EmployeeLeaveRequestViewModel</h4>
+        <h4></h4>
         <hr />
+    
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.leaveRequestID)
+        @Html.HiddenFor(model => model.LeaveRequestID)
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.employeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("employeeID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
 
         <div class="form-group">
-            @Html.LabelFor(model => model.employeeID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EmployeeID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.employeeID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+
+                <div class="col-md-4 pull-left" style="margin-left:-15px;">
+                    <p>
+                        <input id="employeeInput" class="form-control" type="text" name="employeeName" placeholder="Start typing your name.." value="@user.EmployeeName" readonly="readonly" />
+
+                        @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+                    </p>
+
+                    <span hidden id="errorEmployee" class="text-danger field-validation-error" data-valmsg-for="employeeInput" data-valmsg-replace="true">
+                        <span for="employeeInput" class="">Invalid name.</span>
+                    </span>
+                </div>
+
+                <div class="col-md-1" style="margin-left:-30px">
+                    <div class="dropdown">
+                        <button disabled class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        </button>
+                        <ul id="ddEmp" class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.allDayEvent, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AllDayEvent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.allDayEvent)
-                    @Html.ValidationMessageFor(model => model.allDayEvent, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.AllDayEvent, new { @id = "allDayEvent" })
+                    @Html.ValidationMessageFor(model => model.AllDayEvent, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.startTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StartTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.startTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.startTime, "", new { @class = "text-danger" })
+                <p>
+                 
+
+                    @Html.EditorFor(model => model.StartTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerStart" } })
+                    <script type="text/javascript">
+
+                         checked = false;
+
+                        $('#AllDayEvent').click(function () {
+                            checked = !checked;
+                        });
+
+
+                        jQuery('#datetimepickerStart').datetimepicker({
+
+                            onShow:function( ct ){
+
+                                if(checked){
+
+                                    this.setOptions({
+                                        timepicker: false,
+                                        format: 'm/d/Y',
+                                    })
+                                }else{
+                                    this.setOptions({
+                                        timepicker: true
+                                    })
+                                }
+                            },
+                        });
+                    </script>
+
+                </p>
+
+
+                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.endTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.endTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.endTime, "", new { @class = "text-danger" })
+                <p>
+
+                    @Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-control", @id = "datetimepickerEnd" } })
+                    <script type="text/javascript">
+
+                        jQuery('#datetimepickerEnd').datetimepicker({
+
+                            onShow:function( ct ){
+
+                                if(checked){
+
+                                    this.setOptions({
+                                        timepicker: false,
+                                        format: 'm/d/Y'
+                                    })
+
+                                }else{
+                                    this.setOptions({
+                                        timepicker: true
+                                    })
+                                }
+                            },
+                        });
+                    </script>
+
+                </p>
+
+
+                @Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.leaveReasonID, "leaveReasonID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.LeaveReason.LeaveReasonName, "Leave Reason", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("leaveReasonID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.leaveReasonID, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.LeaveReason.LeaveReasonID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.deliveryManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DeliveryManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.deliveryManagerID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.deliveryManagerID, "", new { @class = "text-danger" })
+
+
+                <div class="col-md-4 pull-left" style="margin-left:-15px">
+
+                    <p>
+                        <input id="delManagerInput" class="form-control" type="text" name="deliveryManagerName" placeholder="Start typing delivery manager name.." value="@Model.DeliveryManagerName"/>
+
+                    </p>
+                    <span hidden id="errorDelManager" class="text-danger field-validation-error" data-valmsg-for="delManagerInput" data-valmsg-replace="true">
+                        <span for="delManagerInput" class="">Invalid name of delivery manager.</span>
+                    </span>
+                </div>
+
+                <div class="col-md-4 pull-left" style="margin-left:-30px">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        </button>
+                        <ul id="ddDel" class="dropdown-menu" aria-labelledby="dropdownMenu2"></ul>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.requestStatusID, "requestStatusID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DepartmentManagerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("requestStatusID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.requestStatusID, "", new { @class = "text-danger" })
+                <div class="col-md-4 pull-left" style="margin-left:-15px">
+                    <p>
+                        <input id="depManagerInput" class="form-control" type="text" name="departmentManagerName" placeholder="Start typing department manager name.." value="@Model.DepartmentManagerName"/>
+
+                    </p>
+                    <span hidden id="errorDepManager" class="text-danger field-validation-error" data-valmsg-for="depManagerInput" data-valmsg-replace="true">
+                        <span for="depManagerInput" class="">Invalid name of department manager.</span>
+                    </span>
+                </div>
+
+                <div class="col-md-4 pull-left" style="margin-left:-30px">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                        </button>
+                        <ul id="ddDep" class="dropdown-menu" aria-labelledby="dropdownMenu3"></ul>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save Changes" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -94,6 +229,269 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+
+<script>
+            function getData(callback) {
+
+                $.ajax({
+                    url: '@Url.Action("getAllEmployees")',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        callback(data);;
+
+                    },
+
+                });
+
+            }
+
+            function getDelManagers(callback) {
+
+                $.ajax({
+                    url: '@Url.Action("getAllDelManagers")',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        callback(data);;
+
+                    },
+
+                });
+
+            }
+
+            function getDepManagers(callback) {
+
+                $.ajax({
+                    url: '@Url.Action("getAllDepManagers")',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        callback(data);;
+
+                    },
+
+                });
+
+            }
+
+
+
+
+
+            employees = [];
+            getData(function (data) {
+
+                $.each(data, function (index, item) {
+
+                    employees.push(item.EmployeeName);
+
+                    $("#ddEmp").append('<li><a>' + item.EmployeeName + '</a></li>');
+
+                });
+
+
+            });
+
+            $("#ddEmp").on("click", "li", function () {
+                $('input[name="employeeName"]').val($(this).text());
+                $('input[name="employeeName"]').css('border', '1px solid #cccccc');
+                $('#errorEmployee').hide();
+            });
+
+
+
+            delManagers = [];
+            getDelManagers(function (data) {
+
+                $.each(data, function (index, item) {
+
+                    delManagers.push(item.EmployeeName);
+
+                    $("#ddDel").append('<li><a>' + item.EmployeeName + '</a></li>');
+                });
+
+
+            });
+
+            $("#ddDel").on("click", "li", function () {
+                $('input[name="deliveryManagerName"]').val($(this).text());
+                $('input[name="deliveryManagerName"]').css('border', '1px solid #cccccc');
+                $('#errorDelManager').hide();
+            });
+
+            depManagers = [];
+            getDepManagers(function (data) {
+
+                $.each(data, function (index, item) {
+
+                    depManagers.push(item.EmployeeName);
+
+                    $("#ddDep").append('<li><a>' + item.EmployeeName + '</a></li>');
+                });
+
+
+            });
+
+            $("#ddDep").on("click", "li", function () {
+                $('input[name="departmentManagerName"]').val($(this).text());
+                $('input[name="departmentManagerName"]').css('border', '1px solid #cccccc');
+                $('#errorDepManager').hide();
+            });
+
+
+
+            $('input[name="employeeName"]').autoComplete({
+                minChars: 1,
+                source: function (term, suggest) {
+                    term = term.toLowerCase();
+                    var choices = employees;
+                    var matches = [];
+                    for (i = 0; i < choices.length; i++)
+                        if (choices[i].toLowerCase().startsWith(term)) matches.push(choices[i]);
+                    suggest(matches);
+                }
+            });
+
+            $('input[name="deliveryManagerName"]').autoComplete({
+                minChars: 1,
+                source: function (term, suggest) {
+                    term = term.toLowerCase();
+                    var choices = delManagers;
+                    var matches = [];
+                    for (i = 0; i < choices.length; i++)
+                        if (choices[i].toLowerCase().startsWith(term)) matches.push(choices[i]);
+                    suggest(matches);
+                }
+            });
+
+            $('input[name="departmentManagerName"]').autoComplete({
+                minChars: 1,
+                source: function (term, suggest) {
+                    term = term.toLowerCase();
+                    var choices = depManagers;
+                    var matches = [];
+                    for (i = 0; i < choices.length; i++)
+                        if (choices[i].toLowerCase().startsWith(term)) matches.push(choices[i]);
+                    suggest(matches);
+                }
+            });
+
+            $('input[name="employeeName"]').focusout(function () {
+
+                if (!checkName($(this).val(),employees)) {
+
+                    $(this).css('border', '1px solid red');
+                    $('#errorEmployee').show();
+
+                } else {
+
+                    $(this).css('border', '1px solid #cccccc');
+                    $('#errorEmployee').hide();
+
+                    var name = $(this).val();
+                    name = name.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    });
+                    $(this).val(name);
+
+                }
+            });
+
+            $('input[name="deliveryManagerName"]').focusout(function () {
+
+                if (!checkName($(this).val(),delManagers)) {
+
+                    $(this).css('border', '1px solid red');
+                    $('#errorDelManager').show();
+
+                } else {
+
+                    $(this).css('border', '1px solid #cccccc');
+                    $('#errorDelManager').hide();
+
+                    var name = $(this).val();
+                    name = name.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    });
+                    $(this).val(name);
+
+                }
+            });
+
+            $('input[name="departmentManagerName"]').focusout(function () {
+
+                if (!checkName($(this).val(), depManagers)) {
+
+                    $(this).css('border', '1px solid red');
+                    $('#errorDepManager').show();
+
+                } else {
+
+                    $(this).css('border', '1px solid #cccccc');
+                    $('#errorDepManager').hide();
+
+                    var name = $(this).val();
+                    name = name.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    });
+                    $(this).val(name);
+
+                }
+            });
+
+            function checkName(name,list) {
+
+                for (var i = 0; i < list.length; i++) {
+
+                    if (list[i].toLowerCase() == name.toLowerCase()) {
+
+                        return true;
+
+                    }
+                }
+                return false;
+            }
+
+            function validateEmployeeName() {
+                return (checkName($('input[name="employeeName"]').val(),employees))
+            }
+            function validateDelManagerName() {
+                return (checkName($('input[name="deliveryManagerName"]').val(), delManagers))
+            }
+            function validateDepManagerName() {
+                return (checkName($('input[name="departmentManagerName"]').val(), depManagers))
+            }
+            $('form').submit(function (e) {
+
+                if (!validateEmployeeName()) {
+                    $('#errorEmployee').show();
+                    e.preventDefault();
+                }
+
+                if (!validateDelManagerName()) {
+                    $('#errorDelManager').show();
+                    e.preventDefault();
+                }
+
+                if (!validateDepManagerName()) {
+                    $('#errorDepManager').show();
+                    e.preventDefault();
+                }
+
+
+            });
+
+
+            $(document).ready(function () {
+
+                initDDEmployee();
+
+
+            });
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -9,45 +9,45 @@ namespace LeaveManager.Models
     public class DepartmentManagerLeaveRequestViewModel
     {
 
-        public int leaveRequestID { get; set; }
+        public int LeaveRequestID { get; set; }
 
         [Display(Name = "Employee Name")]
-        public int employeeID { get; set; }
+        public int EmployeeID { get; set; }
         [Display(Name = "Employee Name")]
-        public virtual Employee employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         [Display(Name = "All Day Event?")]
-        public bool allDayEvent { get; set; }
+        public bool AllDayEvent { get; set; }
 
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
-        public DateTime startTime { get; set; }
+        public DateTime StartTime { get; set; }
 
         [Display(Name = "End Date")]
         [DataType(DataType.Date)]
-        public DateTime endTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         [Display(Name = "Leave Reason")]
         public int leaveReasonID { get; set; }
-        public virtual LeaveReason leaveReason { get; set; }
+        public virtual LeaveReason LeaveReason { get; set; }
 
         [Display(Name = "Leave Reason Description")]
         [DataType(DataType.MultilineText)]
-        public string description { get; set; }
+        public string Description { get; set; }
 
         [Display(Name = "Department Manager")]
-        public int departmentManagerID { get; set; }
+        public int DepartmentManagerID { get; set; }
         [Display(Name = "Department Manager")]
-        public virtual Employee departmentManager { get; set; }
+        public virtual Employee DepartmentManager { get; set; }
 
         [Display(Name = "Department Manager Status")]
-        public int departmentManagerStatusID { get; set; }
+        public int DepartmentManagerStatusID { get; set; }
         [Display(Name = "Department Manager Status")]
-        public virtual RequestStatus departmentManagerStatus { get; set; }
+        public virtual RequestStatus DepartmentManagerStatus { get; set; }
 
         [DataType(DataType.MultilineText)]
         [Display(Name = "Department Manager Comment")]
-        public string departmentManagerComment { get; set; }
+        public string DepartmentManagerComment { get; set; }
 
 
 

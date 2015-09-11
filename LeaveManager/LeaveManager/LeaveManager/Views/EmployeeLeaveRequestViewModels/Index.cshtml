@@ -14,38 +14,38 @@
 
 
         <th>
-            @Html.DisplayNameFor(model => model.employee)
+            @Html.DisplayNameFor(model => model.Employee)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.leaveReason.leaveReasonName)
+            @Html.DisplayNameFor(model => model.LeaveReason.LeaveReasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.allDayEvent)
+            @Html.DisplayNameFor(model => model.AllDayEvent)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startTime)
+            @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endTime)
+            @Html.DisplayNameFor(model => model.EndTime)
         </th>
 
         <th>
-            @Html.DisplayNameFor(model => model.deliveryManager)
+            @Html.DisplayNameFor(model => model.DeliveryManager)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.deliveryManagerStatus.requestStatusName)
+            @Html.DisplayNameFor(model => model.DeliveryManagerStatus.RequestStatusName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.deliveryManagerComment)
+            @Html.DisplayNameFor(model => model.DeliveryManagerComment)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentManager)
+            @Html.DisplayNameFor(model => model.DepartmentManager)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentManagerStatus.requestStatusName)
+            @Html.DisplayNameFor(model => model.DepartmentManagerStatus.RequestStatusName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.departmentManagerComment)
+            @Html.DisplayNameFor(model => model.DepartmentManagerComment)
         </th>
 
 
@@ -55,83 +55,99 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        var style = "";
+
+        if (item.DeliveryManagerStatus.RequestStatusName.Equals("Denied") || item.DepartmentManagerStatus.RequestStatusName.Equals("Denied"))
+        {
+            style = "#F8F2F2";
+
+        }
+        else if (item.DepartmentManagerStatus.RequestStatusName.Equals("Approved") && item.DeliveryManagerStatus.RequestStatusName.Equals("Approved"))
+        {
+            style = "#F0F7F1";
+
+        }
+                    <tr bgcolor="@style">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.EmployeeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaveReason.LeaveReasonName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AllDayEvent)
+                    </td>
+                    <td>
+                        @if (item.AllDayEvent)
+                        {
+                            @Html.DisplayFor(modelItem => item.StartTime).ToString().Split(' ')[0]
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.StartTime)
+                        }
+                    </td>
+                    <td>
+                        @if (item.AllDayEvent)
+                        {
+                            @Html.DisplayFor(modelItem => item.EndTime).ToString().Split(' ')[0]
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.EndTime)
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryManager.EmployeeName)
+                    </td>
+                    <th>
+                    
+                        @formatStatus(item.DeliveryManagerStatus.RequestStatusName)
+                    </th>
+                    <th>
+                        @if (!item.DeliveryManagerStatus.RequestStatusName.Equals("Pending"))
+                        {
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.employee.employeeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.leaveReason.leaveReasonName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.allDayEvent)
-            </td>
-            <td>
-                @if (item.allDayEvent)
-                {
-                    @Html.DisplayFor(modelItem => item.startTime).ToString().Split(' ')[0]
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.startTime)
-                }
-            </td>
-            <td>
-                @if (item.allDayEvent)
-                {
-                    @Html.DisplayFor(modelItem => item.endTime).ToString().Split(' ')[0]
-                }
-                else
-                {
-                    @Html.DisplayFor(modelItem => item.endTime)
-                }
-            </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.deliveryManager.employeeName)
-            </td>
-            <th>
-                @*@Html.DisplayFor(modelItem => item.deliveryManagerStatus.requestStatusName)*@
-                @formatStatus(item.deliveryManagerStatus.requestStatusName)
-            </th>
-            <th>
-                @if (!item.deliveryManagerStatus.requestStatusName.Equals("Pending"))
-                {
+                            @Html.DisplayFor(modelItem => item.DeliveryManagerComment)
 
 
-                    @Html.DisplayFor(modelItem => item.deliveryManagerComment)
+                        }
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartmentManager.EmployeeName)
+                    </td>
+                    <th>
+                     
+                        @formatStatus(item.DepartmentManagerStatus.RequestStatusName)
+
+                    </th>
+                    <th>
+                        @if (!item.DepartmentManagerStatus.RequestStatusName.Equals("Pending"))
+                        {
 
 
-                }
-            </th>
-            <td>
-                @Html.DisplayFor(modelItem => item.departmentManager.employeeName)
-            </td>
-            <th>
-                @*@Html.DisplayFor(modelItem => item.departmentManagerStatus.requestStatusName)*@
-                @formatStatus(item.departmentManagerStatus.requestStatusName)
-
-            </th>
-            <th>
-                @if (!item.departmentManagerStatus.requestStatusName.Equals("Pending"))
-                {
+                            @Html.DisplayFor(modelItem => item.DepartmentManagerComment)
 
 
-                    @Html.DisplayFor(modelItem => item.departmentManagerComment)
+                        }
+                    </th>
+
+                    <td>
 
 
-                }
-            </th>
+                        @if (item.DepartmentManagerStatus.RequestStatusName.Equals("Approved") && item.DeliveryManagerStatus.RequestStatusName.Equals("Approved"))
+                        {
+                            @Html.ActionLink("Print PDF", "printPDF", new { id = item.LeaveRequestID })
+                        }
 
-            <td>
-           @if(item.departmentManagerStatus.requestStatusName.Equals("Approved") && item.deliveryManagerStatus.requestStatusName.Equals("Approved")){
-                @Html.ActionLink("printPDF", "printPDF", new { id = item.leaveRequestID })
-            }
-            @*  @Html.ActionLink("Details", "Details", new { id=item.leaveRequestID }) |
-        @Html.ActionLink("Delete", "Delete", new { id=item.leaveRequestID })*@
-        </td>
-        </tr>
+                        
+                     
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LeaveRequestID })
+
+                    </td>
+                </tr>
     }
 
 </table>
